@@ -18,6 +18,12 @@ export interface FeatureFlagsResponse {
 const flagCache = new Map<string, { value: boolean; timestamp: number }>();
 const CACHE_DURATION = 5 * 60 * 1000;
 
+const ALWAYS_ENABLED_FLAGS = new Set([
+  'agent_builder',
+  'custom_agents',
+  'mcp_configuration',
+]);
+
 let globalFlagsCache: { flags: Record<string, boolean>; timestamp: number } | null = null;
 
 export class FeatureFlagManager {
@@ -34,6 +40,9 @@ export class FeatureFlagManager {
   
   async isEnabled(flagName: string): Promise<boolean> {
     try {
+      if (ALWAYS_ENABLED_FLAGS.has(flagName)) {
+        return true;
+      }
       const cached = flagCache.get(flagName);
       if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
         return cached.value;
@@ -104,19 +113,23 @@ export class FeatureFlagManager {
       }
       
       const data: FeatureFlagsResponse = await response.json();
+      const mergedFlags = { ...data.flags };
+      ALWAYS_ENABLED_FLAGS.forEach(flag => {
+        mergedFlags[flag] = true;
+      });
       globalFlagsCache = {
-        flags: data.flags,
+        flags: mergedFlags,
         timestamp: Date.now(),
       };
-      
-      Object.entries(data.flags).forEach(([flagName, enabled]) => {
+
+      Object.entries(mergedFlags).forEach(([flagName, enabled]) => {
         flagCache.set(flagName, {
           value: enabled,
           timestamp: Date.now(),
         });
       });
-      
-      return data.flags;
+
+      return mergedFlags;
     } catch (error) {
       console.error('Error fetching all feature flags:', error);
       return {};
