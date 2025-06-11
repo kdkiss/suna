@@ -18,11 +18,14 @@ export interface FeatureFlagsResponse {
 const flagCache = new Map<string, { value: boolean; timestamp: number }>();
 const CACHE_DURATION = 5 * 60 * 1000;
 
-const ALWAYS_ENABLED_FLAGS = new Set([
+// These flags should remain enabled regardless of backend configuration
+const ALWAYS_ENABLED_FLAGS = [
   'agent_builder',
   'custom_agents',
   'mcp_configuration',
-]);
+] as const;
+
+const ALWAYS_ENABLED_SET = new Set<string>(ALWAYS_ENABLED_FLAGS);
 
 let globalFlagsCache: { flags: Record<string, boolean>; timestamp: number } | null = null;
 
@@ -40,7 +43,7 @@ export class FeatureFlagManager {
   
   async isEnabled(flagName: string): Promise<boolean> {
     try {
-      if (ALWAYS_ENABLED_FLAGS.has(flagName)) {
+      if (ALWAYS_ENABLED_SET.has(flagName)) {
         return true;
       }
       const cached = flagCache.get(flagName);
@@ -113,10 +116,10 @@ export class FeatureFlagManager {
       }
       
       const data: FeatureFlagsResponse = await response.json();
-      const mergedFlags = { ...data.flags };
-      ALWAYS_ENABLED_FLAGS.forEach(flag => {
-        mergedFlags[flag] = true;
-      });
+      const alwaysEnabled = Object.fromEntries(
+        ALWAYS_ENABLED_FLAGS.map((flag) => [flag, true])
+      );
+      const mergedFlags = { ...data.flags, ...alwaysEnabled };
       globalFlagsCache = {
         flags: mergedFlags,
         timestamp: Date.now(),
