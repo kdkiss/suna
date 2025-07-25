@@ -334,11 +334,11 @@ export function ToolCallSidePanel({
       } else {
         return (
           <div
-            className={`${baseClasses} bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors cursor-pointer`}
+            className={`${baseClasses} bg-darkblue-50 dark:bg-darkblue-900/20 border border-darkblue-200 dark:border-darkblue-800 hover:bg-darkblue-100 dark:hover:bg-darkblue-900/30 transition-colors cursor-pointer`}
             onClick={jumpToLatest}
           >
-            <div className={`${dotClasses} bg-blue-500`} />
-            <span className={`${textClasses} text-blue-700 dark:text-blue-400`}>Jump to Latest</span>
+            <div className={`${dotClasses} bg-darkblue-500`} />
+            <span className={`${textClasses} text-darkblue-700 dark:text-darkblue-400`}>Jump to Latest</span>
           </div>
         );
       }
@@ -435,7 +435,7 @@ export function ToolCallSidePanel({
                   <div className="flex items-center justify-between">
                     <div className="ml-2 flex items-center gap-2">
                       <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
-                        {agentName ? `${agentName}'s Computer` : 'Suna\'s Computer'}
+                        {agentName ? `${agentName}'s Computer` : 'Suni\'s Computer'}
                       </h2>
                     </div>
                     <Button
@@ -473,7 +473,7 @@ export function ToolCallSidePanel({
             <div className="flex items-center justify-between">
               <div className="ml-2 flex items-center gap-2">
                 <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
-                  {agentName ? `${agentName}'s Computer` : 'Suna\'s Computer'}
+                  {agentName ? `${agentName}'s Computer` : 'Suni\'s Computer'}
                 </h2>
               </div>
               <Button
@@ -519,11 +519,11 @@ export function ToolCallSidePanel({
               <div className="flex items-center justify-between">
                 <div className="ml-2 flex items-center gap-2">
                   <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
-                    {agentName ? `${agentName}'s Computer` : 'Suna\'s Computer'}
+                    {agentName ? `${agentName}'s Computer` : 'Suni\'s Computer'}
                   </h2>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400 flex items-center gap-1.5">
+                  <div className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-darkblue-50 text-darkblue-700 dark:bg-darkblue-900/20 dark:text-darkblue-400 flex items-center gap-1.5">
                     <CircleDashed className="h-3 w-3 animate-spin" />
                     <span>Running</span>
                   </div>
@@ -541,8 +541,8 @@ export function ToolCallSidePanel({
             <div className="flex flex-col items-center justify-center flex-1 p-8">
               <div className="flex flex-col items-center space-y-4 max-w-sm text-center">
                 <div className="relative">
-                  <div className="w-16 h-16 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center">
-                    <CircleDashed className="h-8 w-8 text-blue-500 dark:text-blue-400 animate-spin" />
+                  <div className="w-16 h-16 bg-darkblue-50 dark:bg-darkblue-900/20 rounded-full flex items-center justify-center">
+                    <CircleDashed className="h-8 w-8 text-darkblue-500 dark:text-darkblue-400 animate-spin" />
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -565,7 +565,7 @@ export function ToolCallSidePanel({
             <div className="flex items-center justify-between">
               <div className="ml-2 flex items-center gap-2">
                 <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
-                  {agentName ? `${agentName}'s Computer` : 'Suna\'s Computer'}
+                  {agentName ? `${agentName}'s Computer` : 'Suni\'s Computer'}
                 </h2>
               </div>
               <Button
@@ -615,7 +615,7 @@ export function ToolCallSidePanel({
           <div className="flex items-center justify-between">
             <motion.div layoutId="tool-icon" className="ml-2 flex items-center gap-2">
               <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-100">
-                {agentName ? `${agentName}'s Computer` : 'Suna\'s Computer'}
+                {agentName ? `${agentName}'s Computer` : 'Suni\'s Computer'}
               </h2>
             </motion.div>
 
@@ -635,7 +635,7 @@ export function ToolCallSidePanel({
 
             {isStreaming && (
               <div className="flex items-center gap-2">
-                <div className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 dark:bg-blue-900/20 dark:text-blue-400 flex items-center gap-1.5">
+                <div className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-darkblue-50 text-darkblue-700 dark:bg-darkblue-900/20 dark:text-darkblue-400 flex items-center gap-1.5">
                   <CircleDashed className="h-3 w-3 animate-spin" />
                   <span>Running</span>
                 </div>

@@ -190,7 +190,7 @@ export function CompleteToolView({
           )}
 
           {isStreaming && (
-            <Badge className="bg-gradient-to-b from-blue-200 to-blue-100 text-blue-700 dark:from-blue-800/50 dark:to-blue-900/60 dark:text-blue-300">
+            <Badge className="bg-gradient-to-b from-darkblue-200 to-darkblue-100 text-darkblue-700 dark:from-darkblue-800/50 dark:to-darkblue-900/60 dark:text-darkblue-300">
               <Loader2 className="h-3.5 w-3.5 animate-spin mr-1" />
               Completing
             </Badge>

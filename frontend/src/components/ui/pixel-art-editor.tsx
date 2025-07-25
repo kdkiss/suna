@@ -13,7 +13,7 @@ interface PixelArtEditorProps {
 
 const GRID_SIZE = 16;
 const COLORS = [
-  '#000000', '#FFFFFF', '#FF0000', '#00FF00', '#0000FF', '#FFFF00', '#FF00FF', '#00FFFF',
+  '#000000', '#FFFFFF', '#FF0000', '#00FF00', '#00008B', '#FFFF00', '#FF00FF', '#00FFFF',
   '#800000', '#008000', '#000080', '#808000', '#800080', '#008080', '#C0C0C0', '#808080',
   '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FECA57', '#FF9FF3', '#54A0FF', '#48DBFB'
 ];
@@ -181,7 +181,7 @@ export const PixelArtEditor: React.FC<PixelArtEditorProps> = ({
                 selectedColor === 'currentColor' && !isErasing
                   ? 'border-primary ring-2 ring-primary/20' 
                   : 'border-border'
-              } bg-gradient-to-br from-blue-500 to-purple-500`}
+              } bg-gradient-to-br from-darkblue-500 to-purple-500`}
               onClick={() => {
                 setSelectedColor('currentColor');
                 setIsErasing(false);

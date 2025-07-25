@@ -35,7 +35,7 @@ interface Agent {
     version_number: number;
   };
   metadata?: {
-    is_suna_default?: boolean;
+    is_suni_default?: boolean;
     centrally_managed?: boolean;
     restrictions?: {
       system_prompt_editable?: boolean;
@@ -93,7 +93,7 @@ const AgentModal: React.FC<AgentModalProps> = ({
   };
 
   const { avatar, color } = getAgentStyling(agent);
-  const isSunaAgent = agent.metadata?.is_suna_default || false;
+  const isSuniAgent = agent.metadata?.is_suni_default || false;
   
   const truncateDescription = (text?: string, maxLength = 120) => {
     if (!text || text.length <= maxLength) return text || 'Try out this agent';
@@ -105,8 +105,8 @@ const AgentModal: React.FC<AgentModalProps> = ({
       <DialogContent className="max-w-md p-0 overflow-hidden border-none">
         <DialogTitle className="sr-only">Agent actions</DialogTitle>
         <div className="relative">
-          <div className={`h-32 flex items-center justify-center relative bg-gradient-to-br from-opacity-90 to-opacity-100`} style={{ backgroundColor: isSunaAgent ? '' : color }}>
-            {isSunaAgent ? (
+          <div className={`h-32 flex items-center justify-center relative bg-gradient-to-br from-opacity-90 to-opacity-100`} style={{ backgroundColor: isSuniAgent ? '' : color }}>
+            {isSuniAgent ? (
               <div className="p-6">
                 <KortixLogo size={48} />
               </div>
@@ -123,7 +123,7 @@ const AgentModal: React.FC<AgentModalProps> = ({
                 <h2 className="text-xl font-semibold text-foreground">
                   {agent.name}
                 </h2>
-                {!isSunaAgent && agent.current_version && (
+                {!isSuniAgent && agent.current_version && (
                   <Badge variant="outline" className="text-xs">
                     <GitBranch className="h-3 w-3" />
                     {agent.current_version.version_name}
@@ -158,7 +158,7 @@ const AgentModal: React.FC<AgentModalProps> = ({
                 Chat
               </Button>
             </div>
-            {!isSunaAgent && (
+            {!isSuniAgent && (
               <div className="pt-2">
                 {agent.is_public ? (
                   <div className="space-y-2">

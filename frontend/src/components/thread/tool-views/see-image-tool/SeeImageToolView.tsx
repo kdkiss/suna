@@ -277,10 +277,10 @@ export function SeeImageToolView({
   }
 
   const config = {
-    color: 'text-blue-500 dark:text-blue-400',
-    bgColor: 'bg-gradient-to-b from-blue-100 to-blue-50 shadow-inner dark:from-blue-800/40 dark:to-blue-900/60 dark:shadow-blue-950/20',
-    badgeColor: 'bg-gradient-to-b from-blue-200 to-blue-100 text-blue-700 dark:from-blue-800/50 dark:to-blue-900/60 dark:text-blue-300',
-    hoverColor: 'hover:bg-gradient-to-b hover:from-blue-200 hover:to-blue-100 dark:hover:from-blue-800/60 dark:hover:to-blue-900/40'
+    color: 'text-darkblue-500 dark:text-darkblue-400',
+    bgColor: 'bg-gradient-to-b from-darkblue-100 to-darkblue-50 shadow-inner dark:from-darkblue-800/40 dark:to-darkblue-900/60 dark:shadow-darkblue-950/20',
+    badgeColor: 'bg-gradient-to-b from-darkblue-200 to-darkblue-100 text-darkblue-700 dark:from-darkblue-800/50 dark:to-darkblue-900/60 dark:text-darkblue-300',
+    hoverColor: 'hover:bg-gradient-to-b hover:from-darkblue-200 hover:to-darkblue-100 dark:hover:from-darkblue-800/60 dark:hover:to-darkblue-900/40'
   };
 
   const imageUrl = constructImageUrl(filePath, project);
@@ -293,7 +293,7 @@ export function SeeImageToolView({
       <CardHeader className="h-14 bg-gradient-to-r from-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:to-zinc-800/90 backdrop-blur-sm border-b p-2 px-4 space-y-0">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className={cn("relative p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20 transition-colors", config.bgColor)}>
+            <div className={cn("relative p-2 rounded-xl bg-gradient-to-br from-darkblue-500/20 to-darkblue-600/10 border border-darkblue-500/20 transition-colors", config.bgColor)}>
               <ImageIcon className={cn("w-5 h-5", config.color)} />
             </div>
             <div>
@@ -330,7 +330,7 @@ export function SeeImageToolView({
               )}
             </Badge>
           ) : (
-            <Badge variant="secondary" className="bg-gradient-to-b from-blue-50 to-blue-100 text-blue-700 border border-blue-200/50 dark:from-blue-900/30 dark:to-blue-800/20 dark:text-blue-400 dark:border-blue-800/30 px-2.5 py-1 flex items-center gap-1.5">
+            <Badge variant="secondary" className="bg-gradient-to-b from-darkblue-50 to-darkblue-100 text-darkblue-700 border border-darkblue-200/50 dark:from-darkblue-900/30 dark:to-darkblue-800/20 dark:text-darkblue-400 dark:border-darkblue-800/30 px-2.5 py-1 flex items-center gap-1.5">
               <Loader2 className="h-3.5 w-3.5 animate-spin" />
               Loading image...
             </Badge>
@@ -350,7 +350,7 @@ export function SeeImageToolView({
               <Skeleton className="h-48 w-full rounded-lg mb-6" />
               <div className="w-full h-2 bg-zinc-200 dark:bg-zinc-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-blue-400 to-blue-500 dark:from-blue-600 dark:to-blue-400 rounded-full transition-all duration-300 ease-out"
+                  className="h-full bg-gradient-to-r from-darkblue-400 to-darkblue-500 dark:from-darkblue-600 dark:to-darkblue-400 rounded-full transition-all duration-300 ease-out"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
@@ -373,7 +373,7 @@ export function SeeImageToolView({
 
       <div className="h-10 px-4 py-2 bg-gradient-to-r from-zinc-50/90 to-zinc-100/90 dark:from-zinc-900/90 dark:to-zinc-800/90 backdrop-blur-sm border-t border-zinc-200 dark:border-zinc-800 flex justify-between items-center">
         <div className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400">
-          <Badge className="py-0.5 h-6 bg-gradient-to-b from-blue-50 to-blue-100 text-blue-700 border border-blue-200/50 dark:from-blue-900/30 dark:to-blue-800/20 dark:text-blue-400 dark:border-blue-800/30">
+          <Badge className="py-0.5 h-6 bg-gradient-to-b from-darkblue-50 to-darkblue-100 text-darkblue-700 border border-darkblue-200/50 dark:from-darkblue-900/30 dark:to-darkblue-800/20 dark:text-darkblue-400 dark:border-darkblue-800/30">
             <ImageIcon className="h-3 w-3 mr-1" />
             IMAGE
           </Badge>

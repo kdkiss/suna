@@ -32,7 +32,7 @@ interface Agent {
 interface AgentPreviewProps {
   agent: Agent;
   agentMetadata?: {
-    is_suna_default?: boolean;
+    is_suni_default?: boolean;
   };
 }
 
@@ -45,7 +45,7 @@ export const AgentPreview = ({ agent, agentMetadata }: AgentPreviewProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [hasStartedConversation, setHasStartedConversation] = useState(false);
 
-  const isSunaAgent = agentMetadata?.is_suna_default || false;
+  const isSuniAgent = agentMetadata?.is_suni_default || false;
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatInputRef = useRef<ChatInputHandles>(null);
@@ -336,7 +336,7 @@ export const AgentPreview = ({ agent, agentMetadata }: AgentPreviewProps) => {
   return (
     <div className="h-full flex flex-col bg-muted dark:bg-muted/30">
       <div className="flex-shrink-0 flex items-center gap-3 p-8">
-        {isSunaAgent ? (
+        {isSuniAgent ? (
           <div className="h-10 w-10 bg-background rounded-lg bg-muted border border flex items-center justify-center">
             <KortixLogo size={16} />
           </div>
@@ -369,7 +369,7 @@ export const AgentPreview = ({ agent, agentMetadata }: AgentPreviewProps) => {
             emptyStateComponent={
               <div className="flex flex-col items-center text-center text-muted-foreground/80">
                 <div className="flex w-20 aspect-square items-center justify-center rounded-2xl bg-muted-foreground/10 p-4 mb-4">
-                  {isSunaAgent ? (
+                  {isSuniAgent ? (
                     <KortixLogo size={36} />
                   ) : (
                     <div className="text-4xl">{avatar}</div>

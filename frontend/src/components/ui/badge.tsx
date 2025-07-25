@@ -20,7 +20,7 @@ const badgeVariants = cva(
         new:
           'text-purple-600 dark:text-purple-300 bg-purple-600/30 dark:bg-purple-600/30',
         beta:
-          'text-blue-600 dark:text-blue-300 bg-blue-600/30 dark:bg-blue-600/30',
+          'text-darkblue-600 dark:text-darkblue-300 bg-darkblue-600/30 dark:bg-darkblue-600/30',
         highlight:
           'text-green-800 dark:text-green-300 bg-green-600/30 dark:bg-green-600/30',
       },

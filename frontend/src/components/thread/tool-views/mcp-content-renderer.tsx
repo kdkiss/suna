@@ -61,7 +61,7 @@ function SearchResultsRenderer({ data, metadata }: { data: any; metadata?: any }
     <div className="p-3">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
-          <Search className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+          <Search className="h-4 w-4 text-darkblue-600 dark:text-darkblue-400" />
           <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
             {results.length} search results
           </span>
@@ -132,7 +132,7 @@ function SearchResultsRenderer({ data, metadata }: { data: any; metadata?: any }
                       href={result.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 dark:text-blue-400 hover:underline truncate flex-1"
+                      className="text-darkblue-600 dark:text-darkblue-400 hover:underline truncate flex-1"
                     >
                       {result.url}
                     </a>
@@ -278,7 +278,7 @@ function UrlListRenderer({ content }: { content: string }) {
   return (
     <div className="p-3">
       <div className="flex items-center gap-2 mb-3">
-        <Link2 className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+        <Link2 className="h-4 w-4 text-darkblue-600 dark:text-darkblue-400" />
         <span className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
           URLs ({urls.length})
         </span>
@@ -291,7 +291,7 @@ function UrlListRenderer({ content }: { content: string }) {
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs text-blue-600 dark:text-blue-400 hover:underline truncate"
+              className="text-xs text-darkblue-600 dark:text-darkblue-400 hover:underline truncate"
             >
               {url}
             </a>

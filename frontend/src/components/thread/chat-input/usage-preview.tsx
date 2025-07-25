@@ -68,14 +68,14 @@ export const UsagePreview: React.FC<UsagePreviewProps> = ({
                         "w-10 h-10 rounded-2xl flex items-center justify-center",
                         isOverLimit()
                             ? "bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800"
-                            : "bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800"
+                            : "bg-darkblue-50 dark:bg-darkblue-900/20 border border-darkblue-200 dark:border-darkblue-800"
                     )}
                 >
                     <Zap className={cn(
                         "h-5 w-5",
                         isOverLimit()
                             ? "text-red-500 dark:text-red-400"
-                            : "text-blue-500 dark:text-blue-400"
+                            : "text-darkblue-500 dark:text-darkblue-400"
                     )} />
                 </motion.div>
             </div>
@@ -91,7 +91,7 @@ export const UsagePreview: React.FC<UsagePreviewProps> = ({
                 <motion.div className="flex items-center gap-2">
                     <div className={cn(
                         "w-2 h-2 rounded-full",
-                        isOverLimit() ? "bg-red-500" : "bg-blue-500"
+                        isOverLimit() ? "bg-red-500" : "bg-darkblue-500"
                     )} />
                     <span className="text-xs text-muted-foreground truncate">
                         {getUsageDisplay()}

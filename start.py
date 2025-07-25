@@ -13,7 +13,7 @@ PROGRESS_FILE = ".setup_progress"
 # --- ANSI Colors ---
 class Colors:
     HEADER = "\033[95m"
-    BLUE = "\033[94m"
+    DARKBLUE = "\033[94m"
     CYAN = "\033[96m"
     GREEN = "\033[92m"
     YELLOW = "\033[93m"
@@ -51,10 +51,10 @@ def check_docker_compose_up():
 
 
 def print_manual_instructions():
-    """Prints instructions for manually starting Suna services."""
-    print(f"\n{Colors.BLUE}{Colors.BOLD}🚀 Manual Startup Instructions{Colors.ENDC}\n")
+    """Prints instructions for manually starting Suni services."""
+    print(f"\n{Colors.DARKBLUE}{Colors.BOLD}🚀 Manual Startup Instructions{Colors.ENDC}\n")
 
-    print("To start Suna, you need to run these commands in separate terminals:\n")
+    print("To start Suni, you need to run these commands in separate terminals:\n")
 
     print(f"{Colors.BOLD}1. Start Infrastructure (in project root):{Colors.ENDC}")
     print(f"{Colors.CYAN}   docker compose up redis rabbitmq -d{Colors.ENDC}\n")
@@ -70,7 +70,7 @@ def print_manual_instructions():
         f"{Colors.CYAN}   cd backend && uv run dramatiq run_agent_background{Colors.ENDC}\n"
     )
 
-    print("Once all services are running, access Suna at: http://localhost:3000\n")
+    print("Once all services are running, access Suni at: http://localhost:3000\n")
 
     print(
         f"{Colors.YELLOW}💡 Tip:{Colors.ENDC} You can use '{Colors.CYAN}./start.py{Colors.ENDC}' to start/stop the infrastructure services."
@@ -82,7 +82,7 @@ def main():
 
     if "--help" in sys.argv:
         print("Usage: ./start.py [OPTION]")
-        print("Manage Suna services based on your setup method")
+        print("Manage Suni services based on your setup method")
         print("\nOptions:")
         print("  -f\tForce start containers without confirmation")
         print("  --help\tShow this help message")
@@ -98,7 +98,7 @@ def main():
     if setup_method == "manual":
         # For manual setup, we only manage infrastructure services (redis, rabbitmq)
         # and show instructions for the rest
-        print(f"{Colors.BLUE}{Colors.BOLD}Manual Setup Detected{Colors.ENDC}")
+        print(f"{Colors.DARKBLUE}{Colors.BOLD}Manual Setup Detected{Colors.ENDC}")
         print("Managing infrastructure services (Redis, RabbitMQ)...\n")
 
         force = "-f" in sys.argv
@@ -142,8 +142,8 @@ def main():
             print_manual_instructions()
 
     else:  # docker setup
-        print(f"{Colors.BLUE}{Colors.BOLD}Docker Setup Detected{Colors.ENDC}")
-        print("Managing all Suna services with Docker Compose...\n")
+        print(f"{Colors.DARKBLUE}{Colors.BOLD}Docker Setup Detected{Colors.ENDC}")
+        print("Managing all Suni services with Docker Compose...\n")
 
         force = "-f" in sys.argv
         if force:
@@ -153,10 +153,10 @@ def main():
 
         if is_up:
             action = "stop"
-            msg = "🛑 Stop all Suna services? [y/N] "
+            msg = "🛑 Stop all Suni services? [y/N] "
         else:
             action = "start"
-            msg = "⚡ Start all Suna services? [Y/n] "
+            msg = "⚡ Start all Suni services? [Y/n] "
 
         if not force:
             response = input(msg).strip().lower()
@@ -171,11 +171,11 @@ def main():
 
         if action == "stop":
             subprocess.run(["docker", "compose", "down"], shell=IS_WINDOWS)
-            print(f"\n{Colors.GREEN}✅ All Suna services stopped.{Colors.ENDC}")
+            print(f"\n{Colors.GREEN}✅ All Suni services stopped.{Colors.ENDC}")
         else:
             subprocess.run(["docker", "compose", "up", "-d"], shell=IS_WINDOWS)
-            print(f"\n{Colors.GREEN}✅ All Suna services started.{Colors.ENDC}")
-            print(f"{Colors.CYAN}🌐 Access Suna at: http://localhost:3000{Colors.ENDC}")
+            print(f"\n{Colors.GREEN}✅ All Suni services started.{Colors.ENDC}")
+            print(f"{Colors.CYAN}🌐 Access Suni at: http://localhost:3000{Colors.ENDC}")
 
 
 if __name__ == "__main__":

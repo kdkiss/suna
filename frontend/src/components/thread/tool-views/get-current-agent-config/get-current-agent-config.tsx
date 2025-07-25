@@ -177,8 +177,8 @@ export function GetCurrentAgentConfigToolView({
                 <div className="border rounded-xl p-5 space-y-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/40 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 flex items-center justify-center">
-                        <Wrench className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-darkblue-100 to-darkblue-50 dark:from-darkblue-900/40 dark:to-darkblue-800/20 border border-darkblue-200 dark:border-darkblue-800 flex items-center justify-center">
+                        <Wrench className="w-5 h-5 text-darkblue-600 dark:text-darkblue-400" />
                       </div>
                       <div>
                         <h4 className="font-medium text-zinc-900 dark:text-zinc-100">

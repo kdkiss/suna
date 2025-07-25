@@ -58,7 +58,7 @@ export function SearchMcpServersToolView({
       case 'oauth':
         return 'bg-emerald-100 text-emerald-700 border-emerald-200 dark:bg-emerald-900/20 dark:text-emerald-300 dark:border-emerald-800';
       case 'api_key':
-        return 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800';
+        return 'bg-darkblue-100 text-darkblue-700 border-darkblue-200 dark:bg-darkblue-900/20 dark:text-darkblue-300 dark:border-darkblue-800';
       case 'none':
         return 'bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-900/20 dark:text-gray-300 dark:border-gray-800';
       default:
@@ -165,7 +165,7 @@ export function SearchMcpServersToolView({
                         </div>
                         {result.is_verified && (
                           <div className="absolute -top-1 -right-1">
-                            <div className="bg-blue-500 rounded-full p-1">
+                            <div className="bg-darkblue-500 rounded-full p-1">
                               <Verified className="w-3 h-3 text-white" />
                             </div>
                           </div>
@@ -184,7 +184,7 @@ export function SearchMcpServersToolView({
                                   <Tooltip>
                                     <TooltipTrigger>
                                       <div className="flex items-center">
-                                        <Sparkles className="w-4 h-4 text-blue-500" />
+                                        <Sparkles className="w-4 h-4 text-darkblue-500" />
                                       </div>
                                     </TooltipTrigger>
                                     <TooltipContent>

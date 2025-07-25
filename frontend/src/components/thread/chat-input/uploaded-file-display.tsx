@@ -46,7 +46,7 @@ export const UploadedFilesDisplay: React.FC<UploadedFilesDisplayProps> = ({
               transition={{ duration: 0.15 }}
               className={cn(
                 'px-2 py-1 bg-muted rounded-md flex items-center gap-1.5 group text-sm',
-                !sandboxId ? 'border-blue-200 dark:border-blue-800' : '',
+                !sandboxId ? 'border-darkblue-200 dark:border-darkblue-800' : '',
               )}
             >
               <span className="truncate max-w-[120px] text-gray-700 dark:text-gray-300">
@@ -55,7 +55,7 @@ export const UploadedFilesDisplay: React.FC<UploadedFilesDisplayProps> = ({
               <span className="text-xs text-gray-500 dark:text-gray-400 flex-shrink-0">
                 ({formatFileSize(file.size)})
                 {!sandboxId && (
-                  <span className="ml-1 text-blue-500">(pending)</span>
+                  <span className="ml-1 text-darkblue-500">(pending)</span>
                 )}
               </span>
               <Button

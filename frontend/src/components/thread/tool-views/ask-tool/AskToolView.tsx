@@ -74,8 +74,8 @@ export function AskToolView({
       <CardHeader className="h-14 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2">
         <div className="flex flex-row items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="relative p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20">
-              <MessageCircleQuestion className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+            <div className="relative p-2 rounded-xl bg-gradient-to-br from-darkblue-500/20 to-darkblue-600/10 border border-darkblue-500/20">
+              <MessageCircleQuestion className="w-5 h-5 text-darkblue-500 dark:text-darkblue-400" />
             </div>
             <div>
               <CardTitle className="text-base font-medium text-zinc-900 dark:text-zinc-100">
@@ -103,7 +103,7 @@ export function AskToolView({
           )}
 
           {isStreaming && (
-            <Badge className="bg-gradient-to-b from-blue-200 to-blue-100 text-blue-700 dark:from-blue-800/50 dark:to-blue-900/60 dark:text-blue-300">
+            <Badge className="bg-gradient-to-b from-darkblue-200 to-darkblue-100 text-darkblue-700 dark:from-darkblue-800/50 dark:to-darkblue-900/60 dark:text-darkblue-300">
               <Loader2 className="h-3.5 w-3.5 animate-spin mr-1" />
               Asking user
             </Badge>

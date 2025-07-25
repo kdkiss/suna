@@ -1670,7 +1670,7 @@ export const StylePicker = ({
                       <button
                         key={`${emoji}-${index}`}
                         className={`w-8 h-8 text-lg hover:bg-gray-100 rounded transition-colors ${
-                          selectedEmoji === emoji ? "bg-blue-100 ring-2 ring-blue-500" : ""
+                          selectedEmoji === emoji ? "bg-darkblue-100 ring-2 ring-darkblue-500" : ""
                         }`}
                         onClick={() => setSelectedEmoji(emoji)}
                       >

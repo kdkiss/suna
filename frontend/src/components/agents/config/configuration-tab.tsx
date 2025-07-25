@@ -35,7 +35,7 @@ interface ConfigurationTabProps {
   onMCPChange: (updates: { configured_mcps: any[]; custom_mcps: any[] }) => void;
   initialAccordion?: string;
   agentMetadata?: {
-    is_suna_default?: boolean;
+    is_suni_default?: boolean;
     centrally_managed?: boolean;
     restrictions?: {
       system_prompt_editable?: boolean;
@@ -57,17 +57,17 @@ export function ConfigurationTab({
   initialAccordion,
   agentMetadata,
 }: ConfigurationTabProps) {
-  const isSunaAgent = agentMetadata?.is_suna_default || false;
+  const isSuniAgent = agentMetadata?.is_suni_default || false;
   
   const mapAccordion = (val?: string) => {
     if (val === 'instructions') return 'system';
-    if (isSunaAgent && (val === 'system' || val === 'tools')) {
+    if (isSuniAgent && (val === 'system' || val === 'tools')) {
       return 'integrations';
     }
     if (['system', 'tools', 'integrations', 'knowledge', 'workflows', 'triggers'].includes(val || '')) {
       return val!;
     }
-    return isSunaAgent ? 'integrations' : 'system';
+    return isSuniAgent ? 'integrations' : 'system';
   };
   
   const [openAccordion, setOpenAccordion] = React.useState<string>(mapAccordion(initialAccordion));
@@ -83,9 +83,9 @@ export function ConfigurationTab({
   const areMCPsEditable = !isViewingOldVersion && (restrictions.mcps_editable !== false);
   
   const handleSystemPromptChange = (value: string) => {
-    if (!isSystemPromptEditable && isSunaAgent) {
+    if (!isSystemPromptEditable && isSuniAgent) {
       toast.error("System prompt cannot be edited", {
-        description: "Suna's system prompt is managed centrally and cannot be changed.",
+        description: "Suni's system prompt is managed centrally and cannot be changed.",
       });
       return;
     }
@@ -94,23 +94,23 @@ export function ConfigurationTab({
 
   return (
     <div className="p-4">
-      {isSunaAgent && (
+      {isSuniAgent && (
         <div className="mb-4 p-4 bg-primary/10 border border-primary-200 rounded-xl">
           <div className="flex items-center gap-3 mb-2">
             <div className="text-primary-600">
               <KortixLogo size={20} />
             </div>
-            <span className="font-semibold text-primary-800">Suna Default Agent</span>
+            <span className="font-semibold text-primary-800">Suni Default Agent</span>
           </div>
           <p className="text-sm text-primary-700">
-            This is Suna's default agent with centrally managed system prompt and tools. 
+            This is Suni's default agent with centrally managed system prompt and tools. 
             You can customize integrations, knowledge base, workflows, and triggers to personalize your experience.
           </p>
         </div>
       )}
       
       <Accordion type="single" collapsible value={openAccordion} onValueChange={setOpenAccordion} className="space-y-2">
-        {!isSunaAgent && (
+        {!isSuniAgent && (
           <AccordionItem 
             value="system" 
             className="rounded-xl hover:bg-muted/30 border transition-colors duration-200"
@@ -137,7 +137,7 @@ export function ConfigurationTab({
             </AccordionContent>
           </AccordionItem>
         )}
-        {!isSunaAgent && (
+        {!isSuniAgent && (
           <AccordionItem 
             value="tools" 
             className="rounded-xl hover:bg-muted/30 border transition-colors duration-200"
@@ -158,7 +158,7 @@ export function ConfigurationTab({
                 tools={displayData.agentpress_tools}
                 onToolsChange={areToolsEditable ? (tools) => onFieldChange('agentpress_tools', tools) : () => {}}
                 disabled={!areToolsEditable}
-                isSunaAgent={isSunaAgent}
+                isSuniAgent={isSuniAgent}
               />
             </AccordionContent>
           </AccordionItem>

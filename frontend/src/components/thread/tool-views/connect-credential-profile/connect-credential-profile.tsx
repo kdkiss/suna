@@ -142,8 +142,8 @@ export function ConnectCredentialProfileToolView({
       <CardHeader className="h-14 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2">
         <div className="flex flex-row items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="relative p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20">
-              <Link2 className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+            <div className="relative p-2 rounded-xl bg-gradient-to-br from-darkblue-500/20 to-darkblue-600/10 border border-darkblue-500/20">
+              <Link2 className="w-5 h-5 text-darkblue-500 dark:text-darkblue-400" />
             </div>
             <div>
               <CardTitle className="text-base font-medium text-zinc-900 dark:text-zinc-100">
@@ -177,8 +177,8 @@ export function ConnectCredentialProfileToolView({
         {isStreaming ? (
           <LoadingState
             icon={Link2}
-            iconColor="text-blue-500 dark:text-blue-400"
-            bgColor="bg-gradient-to-b from-blue-100 to-blue-50 shadow-inner dark:from-blue-800/40 dark:to-blue-900/60 dark:shadow-blue-950/20"
+            iconColor="text-darkblue-500 dark:text-darkblue-400"
+            bgColor="bg-gradient-to-b from-darkblue-100 to-darkblue-50 shadow-inner dark:from-darkblue-800/40 dark:to-darkblue-900/60 dark:shadow-darkblue-950/20"
             title="Generating connection link"
             filePath={profile_name ? `"${profile_name}"` : undefined}
             showProgress={true}
@@ -188,7 +188,7 @@ export function ConnectCredentialProfileToolView({
             <div className="p-4 space-y-4">
               <div className="border rounded-xl p-4">
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/40 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 flex items-center justify-center overflow-hidden">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-darkblue-100 to-darkblue-50 dark:from-darkblue-900/40 dark:to-darkblue-800/20 border border-darkblue-200 dark:border-darkblue-800 flex items-center justify-center overflow-hidden">
                     {logoUrl ? (
                       <img
                         src={logoUrl}
@@ -199,12 +199,12 @@ export function ConnectCredentialProfileToolView({
                           target.style.display = 'none';
                           const parent = target.parentElement;
                           if (parent) {
-                            parent.innerHTML = `<div class="w-full h-full flex items-center justify-center"><svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg></div>`;
+                            parent.innerHTML = `<div class="w-full h-full flex items-center justify-center"><svg class="w-5 h-5 text-darkblue-600 dark:text-darkblue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg></div>`;
                           }
                         }}
                       />
                     ) : (
-                      <User className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                      <User className="w-5 h-5 text-darkblue-600 dark:text-darkblue-400" />
                     )}
                   </div>
                   <div>
@@ -218,10 +218,10 @@ export function ConnectCredentialProfileToolView({
                 </div>
 
                 {instructions && (
-                  <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-3">
+                  <div className="bg-darkblue-50 dark:bg-darkblue-900/20 border border-darkblue-200 dark:border-darkblue-800 rounded-xl p-3">
                     <div className="flex items-start gap-2">
-                      <Zap className="w-4 h-4 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
-                      <p className="text-sm text-blue-700 dark:text-blue-300">
+                      <Zap className="w-4 h-4 text-darkblue-600 dark:text-darkblue-400 mt-0.5 flex-shrink-0" />
+                      <p className="text-sm text-darkblue-700 dark:text-darkblue-300">
                         {instructions}
                       </p>
                     </div>

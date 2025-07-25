@@ -16,7 +16,7 @@ interface Agent {
   configured_mcps?: Array<{ name: string }>;
   agentpress_tools?: Record<string, any>;
   metadata?: {
-    is_suna_default?: boolean;
+    is_suni_default?: boolean;
     centrally_managed?: boolean;
     restrictions?: {
       system_prompt_editable?: boolean;
@@ -56,7 +56,7 @@ export const AgentsList = ({
                 <CardTitle className="text-xl font-semibold text-foreground leading-tight flex items-center gap-2 group-hover:text-primary transition-colors">
                   <div className="flex items-center gap-2 relative">
                     <span className="line-clamp-2">{agent.name}</span>
-                    {agent.metadata?.is_suna_default && (
+                    {agent.metadata?.is_suni_default && (
                       <div className="h-4 w-4 flex items-center justify-center">
                         <KortixLogo size={12} />
                       </div>

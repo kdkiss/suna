@@ -116,9 +116,9 @@ class AgentConfigTool(AgentBuilderBaseTool):
             current_agent = agent_result.data[0]
 
             metadata = current_agent.get('metadata', {})
-            is_suna_default = metadata.get('is_suna_default', False)
+            is_suni_default = metadata.get('is_suni_default', False)
             
-            if is_suna_default:
+            if is_suni_default:
                 restricted_fields = []
                 if name is not None:
                     restricted_fields.append("name")
@@ -131,9 +131,9 @@ class AgentConfigTool(AgentBuilderBaseTool):
                 
                 if restricted_fields:
                     return self.fail_response(
-                        f"Cannot modify {', '.join(restricted_fields)} for the default Suna agent. "
-                        f"Suna's core identity is managed centrally. However, you can still add MCP integrations, "
-                        f"create workflows, set up triggers, and customize other aspects of Suna."
+                        f"Cannot modify {', '.join(restricted_fields)} for the default Suni agent. "
+                        f"Suni's core identity is managed centrally. However, you can still add MCP integrations, "
+                        f"create workflows, set up triggers, and customize other aspects of Suni."
                     )
             
             update_fields = {}

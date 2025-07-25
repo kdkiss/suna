@@ -191,7 +191,7 @@ export function ConfigureProfileForAgentToolView({
               {version_name && (
                 <div className="border rounded-xl p-4 space-y-3">
                   <div className="flex items-center gap-2">
-                    <GitBranch className="w-4 h-4 text-blue-500" />
+                    <GitBranch className="w-4 h-4 text-darkblue-500" />
                     <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
                       Version Information
                     </h3>

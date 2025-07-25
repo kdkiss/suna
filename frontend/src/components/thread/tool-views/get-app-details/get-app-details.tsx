@@ -60,7 +60,7 @@ export function GetAppDetailsToolView({
       case 'oauth':
         return 'bg-emerald-100 text-emerald-700 border-emerald-200 dark:bg-emerald-900/20 dark:text-emerald-300 dark:border-emerald-800';
       case 'api_key':
-        return 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800';
+        return 'bg-darkblue-100 text-darkblue-700 border-darkblue-200 dark:bg-darkblue-900/20 dark:text-darkblue-300 dark:border-darkblue-800';
       case 'none':
         return 'bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-900/20 dark:text-gray-300 dark:border-gray-800';
       default:
@@ -84,8 +84,8 @@ export function GetAppDetailsToolView({
       <CardHeader className="h-14 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2">
         <div className="flex flex-row items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="relative p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20">
-              <Info className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+            <div className="relative p-2 rounded-xl bg-gradient-to-br from-darkblue-500/20 to-darkblue-600/10 border border-darkblue-500/20">
+              <Info className="w-5 h-5 text-darkblue-500 dark:text-darkblue-400" />
             </div>
             <div>
               <CardTitle className="text-base font-medium text-zinc-900 dark:text-zinc-100">
@@ -119,8 +119,8 @@ export function GetAppDetailsToolView({
         {isStreaming ? (
           <LoadingState
             icon={Info}
-            iconColor="text-blue-500 dark:text-blue-400"
-            bgColor="bg-gradient-to-b from-blue-100 to-blue-50 shadow-inner dark:from-blue-800/40 dark:to-blue-900/60 dark:shadow-blue-950/20"
+            iconColor="text-darkblue-500 dark:text-darkblue-400"
+            bgColor="bg-gradient-to-b from-darkblue-100 to-darkblue-50 shadow-inner dark:from-darkblue-800/40 dark:to-darkblue-900/60 dark:shadow-darkblue-950/20"
             title="Loading app details"
             filePath={app_slug ? `"${app_slug}"` : undefined}
             showProgress={true}
@@ -152,7 +152,7 @@ export function GetAppDetailsToolView({
                     </div>
                     {app.is_verified && (
                       <div className="absolute -top-1 -right-1">
-                        <div className="bg-blue-500 rounded-full p-1">
+                        <div className="bg-darkblue-500 rounded-full p-1">
                           <Verified className="w-3 h-3 text-white" />
                         </div>
                       </div>
@@ -171,7 +171,7 @@ export function GetAppDetailsToolView({
                               <Tooltip>
                                 <TooltipTrigger>
                                   <div className="flex items-center">
-                                    <Sparkles className="w-5 h-5 text-blue-500" />
+                                    <Sparkles className="w-5 h-5 text-darkblue-500" />
                                   </div>
                                 </TooltipTrigger>
                                 <TooltipContent>
@@ -226,7 +226,7 @@ export function GetAppDetailsToolView({
                         <Button
                           variant="outline"
                           size="sm"
-                          className="h-8 px-3 text-xs hover:bg-blue-50 dark:hover:bg-blue-900/20"
+                          className="h-8 px-3 text-xs hover:bg-darkblue-50 dark:hover:bg-darkblue-900/20"
                           onClick={() => window.open(app.url!, '_blank')}
                         >
                           <ExternalLink className="w-3 h-3 " />
@@ -255,7 +255,7 @@ export function GetAppDetailsToolView({
                   {app.setup_instructions && (
                     <div className="bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl p-4">
                       <div className="flex items-center gap-2 mb-2">
-                        <Settings className="w-4 h-4 text-blue-500" />
+                        <Settings className="w-4 h-4 text-darkblue-500" />
                         <h3 className="font-medium text-zinc-900 dark:text-zinc-100">Setup</h3>
                       </div>
                       <p className="text-sm text-zinc-600 dark:text-zinc-300">

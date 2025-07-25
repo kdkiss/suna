@@ -230,7 +230,7 @@ export const PipedreamRegistry: React.FC<PipedreamRegistryProps> = ({
                 <h1 className="text-xl font-semibold text-foreground">
                   {agent?.name ? `${agent.name} Integrations` : 'Integrations'}
                 </h1>
-                <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200 dark:border-blue-900 dark:bg-blue-900/20 dark:text-blue-400">
+                <Badge variant="secondary" className="bg-darkblue-50 text-darkblue-700 border-darkblue-200 dark:border-darkblue-900 dark:bg-darkblue-900/20 dark:text-darkblue-400">
                   2700+ Apps
                 </Badge>
               </div>
@@ -243,7 +243,7 @@ export const PipedreamRegistry: React.FC<PipedreamRegistryProps> = ({
             <AgentSelector
               selectedAgentId={currentAgentId}
               onAgentSelect={handleAgentSelect}
-              isSunaAgent={agent?.metadata?.is_suna_default}
+              isSuniAgent={agent?.metadata?.is_suni_default}
             />
           )}
         </div>

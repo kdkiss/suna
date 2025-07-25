@@ -2,9 +2,9 @@ import datetime
 from typing import Dict, Any, List
 from agent.prompt import SYSTEM_PROMPT
 
-class SunaConfig:
-    NAME = "Suna"
-    DESCRIPTION = "Suna is your AI assistant with access to various tools and integrations to help you with tasks across domains."
+class SuniConfig:
+    NAME = "Suni"
+    DESCRIPTION = "Suni is your AI assistant with access to various tools and integrations to help you with tasks across domains."
     AVATAR = "🌞"
     AVATAR_COLOR = "#F59E0B"
     SYSTEM_PROMPT = SYSTEM_PROMPT
@@ -79,7 +79,7 @@ class SunaConfig:
             "avatar": cls.AVATAR,
             "avatar_color": cls.AVATAR_COLOR,
             "metadata": {
-                "is_suna_default": True,
+                "is_suni_default": True,
                 "centrally_managed": True,
                 "restrictions": cls.USER_RESTRICTIONS,
                 "installation_date": datetime.datetime.now(datetime.timezone.utc).isoformat(),
@@ -89,19 +89,19 @@ class SunaConfig:
 
 
 def add_tool(tool_name: str, description: str, enabled: bool = True):
-    SunaConfig.DEFAULT_TOOLS[tool_name] = {
+    SuniConfig.DEFAULT_TOOLS[tool_name] = {
         "enabled": enabled,
         "description": description
     }
 
 def remove_tool(tool_name: str):
-    if tool_name in SunaConfig.DEFAULT_TOOLS:
-        del SunaConfig.DEFAULT_TOOLS[tool_name]
+    if tool_name in SuniConfig.DEFAULT_TOOLS:
+        del SuniConfig.DEFAULT_TOOLS[tool_name]
 
 def enable_tool(tool_name: str):
-    if tool_name in SunaConfig.DEFAULT_TOOLS:
-        SunaConfig.DEFAULT_TOOLS[tool_name]["enabled"] = True
+    if tool_name in SuniConfig.DEFAULT_TOOLS:
+        SuniConfig.DEFAULT_TOOLS[tool_name]["enabled"] = True
 
 def disable_tool(tool_name: str):  
-    if tool_name in SunaConfig.DEFAULT_TOOLS:
-        SunaConfig.DEFAULT_TOOLS[tool_name]["enabled"] = False 
+    if tool_name in SuniConfig.DEFAULT_TOOLS:
+        SuniConfig.DEFAULT_TOOLS[tool_name]["enabled"] = False 

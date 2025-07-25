@@ -392,8 +392,8 @@ class SandboxFilesTool(SandboxToolsBase):
             headers = {
                 "Authorization": f"Bearer {api_key}",
                 "Content-Type": "application/json",
-                "HTTP-Referer": "https://suna.ai",
-                "X-Title": "Suna AI Agent"
+                "HTTP-Referer": "https://suni.ai",
+                "X-Title": "Suni AI Agent"
             }
             
             # Prepare the request for Morph's fast apply using the exact format from their docs

@@ -55,7 +55,7 @@ const getTriggerIcon = (triggerType: string) => {
 const getTriggerTypeColor = (triggerType: string) => {
   switch (triggerType) {
     case 'telegram':
-      return 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300';
+      return 'bg-darkblue-100 text-darkblue-800 dark:bg-darkblue-900 dark:text-darkblue-300';
     case 'slack':
       return 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300';
     case 'webhook':

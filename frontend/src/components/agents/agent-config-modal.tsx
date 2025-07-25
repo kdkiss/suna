@@ -24,7 +24,7 @@ interface AgentConfigModalProps {
   selectedAgentId?: string;
   onAgentSelect?: (agentId: string | undefined) => void;
   initialTab?: string;
-  isSunaAgent?: boolean;
+  isSuniAgent?: boolean;
 }
 
 export const AgentConfigModal: React.FC<AgentConfigModalProps> = ({
@@ -33,7 +33,7 @@ export const AgentConfigModal: React.FC<AgentConfigModalProps> = ({
   selectedAgentId,
   onAgentSelect,
   initialTab = 'tools',
-  isSunaAgent
+  isSuniAgent
 }) => {
   const [activeTab, setActiveTab] = useState(initialTab);
   const [editingInstructions, setEditingInstructions] = useState(false);
@@ -107,7 +107,7 @@ export const AgentConfigModal: React.FC<AgentConfigModalProps> = ({
     }
   };
 
-  const displayName = agent?.name || 'Suna';
+  const displayName = agent?.name || 'Suni';
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
@@ -136,7 +136,7 @@ export const AgentConfigModal: React.FC<AgentConfigModalProps> = ({
           <AgentSelector
             selectedAgentId={selectedAgentId}
             onAgentSelect={onAgentSelect}
-            isSunaAgent={isSunaAgent}
+            isSuniAgent={isSuniAgent}
           />
         </div>
 

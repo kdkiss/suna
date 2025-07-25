@@ -75,7 +75,7 @@ const USAGE_CONTEXT_OPTIONS = [
 //     label: 'Smart Context', 
 //     description: 'Included when contextually relevant',
 //     icon: Target,
-//     color: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800'
+//     color: 'bg-darkblue-50 text-darkblue-700 border-darkblue-200 dark:bg-darkblue-900/20 dark:text-darkblue-400 dark:border-darkblue-800'
 //   },
 //   { 
 //     value: 'on_request', 

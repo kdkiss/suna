@@ -66,7 +66,7 @@ export interface ChatInputProps {
   defaultShowSnackbar?: 'tokens' | 'upgrade' | false;
   showToLowCreditUsers?: boolean;
   agentMetadata?: {
-    is_suna_default?: boolean;
+    is_suni_default?: boolean;
   };
 }
 
@@ -121,7 +121,7 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
     const [uncontrolledValue, setUncontrolledValue] = useState('');
     const value = isControlled ? controlledValue : uncontrolledValue;
 
-    const isSunaAgent = agentMetadata?.is_suna_default || false;
+    const isSuniAgent = agentMetadata?.is_suni_default || false;
 
     const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
     const [pendingFiles, setPendingFiles] = useState<File[]>([]);
@@ -194,10 +194,10 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
         if (!selectedAgentId && !hasAgentIdInUrl) {
           const savedAgentId = localStorage.getItem('lastSelectedAgentId');
           if (savedAgentId) {
-            if (savedAgentId === 'suna') {
-              const defaultSunaAgent = agents.find(agent => agent.metadata?.is_suna_default);
-              if (defaultSunaAgent) {
-                onAgentSelect(defaultSunaAgent.agent_id);
+            if (savedAgentId === 'suni') {
+              const defaultSuniAgent = agents.find(agent => agent.metadata?.is_suni_default);
+              if (defaultSuniAgent) {
+                onAgentSelect(defaultSuniAgent.agent_id);
               } else {
                 onAgentSelect(undefined);
               }
@@ -205,12 +205,12 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
               onAgentSelect(savedAgentId);
             }
           } else {
-            const defaultSunaAgent = agents.find(agent => agent.metadata?.is_suna_default);
-            if (defaultSunaAgent) {
-              console.log('Auto-selecting default Suna agent:', defaultSunaAgent.agent_id);
-              onAgentSelect(defaultSunaAgent.agent_id);
+            const defaultSuniAgent = agents.find(agent => agent.metadata?.is_suni_default);
+            if (defaultSuniAgent) {
+              console.log('Auto-selecting default Suni agent:', defaultSuniAgent.agent_id);
+              onAgentSelect(defaultSuniAgent.agent_id);
             } else if (agents.length > 0) {
-              console.log('No default Suna agent found, selecting first available agent:', agents[0].agent_id);
+              console.log('No default Suni agent found, selecting first available agent:', agents[0].agent_id);
               onAgentSelect(agents[0].agent_id);
             } else {
               console.log('No agents available, keeping undefined');
@@ -231,12 +231,12 @@ export const ChatInput = forwardRef<ChatInputHandles, ChatInputProps>(
     // Save selected agent to localStorage whenever it changes
     useEffect(() => {
       if (typeof window !== 'undefined' && agents.length > 0) {
-        // Check if the selected agent is the Suna default agent
+        // Check if the selected agent is the Suni default agent
         const selectedAgent = agents.find(agent => agent.agent_id === selectedAgentId);
-        const isSunaAgent = selectedAgent?.metadata?.is_suna_default || selectedAgentId === undefined;
+        const isSuniAgent = selectedAgent?.metadata?.is_suni_default || selectedAgentId === undefined;
         
-        // Use 'suna' as a special key for the Suna default agent
-        const keyToStore = isSunaAgent ? 'suna' : selectedAgentId;
+        // Use 'suni' as a special key for the Suni default agent
+        const keyToStore = isSuniAgent ? 'suni' : selectedAgentId;
         console.log('Saving selected agent to localStorage:', keyToStore, 'for selectedAgentId:', selectedAgentId);
         localStorage.setItem('lastSelectedAgentId', keyToStore);
       }

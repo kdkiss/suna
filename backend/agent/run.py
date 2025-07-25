@@ -35,10 +35,10 @@ from agentpress.tool import SchemaType
 load_dotenv()
 
 
-def _get_suna_builder_enhancement():
+def _get_suni_builder_enhancement():
     """
-    Returns additional system prompt content for Suna when self-configuration is enabled.
-    This enhances Suna's default capabilities with agent builder functionality.
+    Returns additional system prompt content for Suni when self-configuration is enabled.
+    This enhances Suni's default capabilities with agent builder functionality.
     """
     return """
 # 🔧 SELF-CONFIGURATION CAPABILITIES
@@ -88,9 +88,9 @@ You now have the ability to configure and enhance yourself! When users ask you t
 
 ## 🌟 Self-Configuration Philosophy
 
-You are Suna, and you can now evolve and adapt based on user needs. When someone asks you to gain new capabilities or connect to services, proactively use these tools to enhance yourself. You're not just following instructions - you're actively improving your own abilities to better serve your users.
+You are Suni, and you can now evolve and adapt based on user needs. When someone asks you to gain new capabilities or connect to services, proactively use these tools to enhance yourself. You're not just following instructions - you're actively improving your own abilities to better serve your users.
 
-Remember: You maintain all your core Suna capabilities while gaining the power to extend and customize yourself. This makes you more helpful and adaptable to each user's specific needs.
+Remember: You maintain all your core Suni capabilities while gaining the power to extend and customize yourself. This makes you more helpful and adaptable to each user's specific needs.
 """
 
 
@@ -146,11 +146,11 @@ async def run_agent(
         logger.info(f"Using custom tool configuration from agent")
     
 
-    # Check if this is Suna (default agent) and enable builder capabilities for self-configuration
-    suna_builder_enabled = False
-    if agent_config and agent_config.get('is_suna_default', False):
-        logger.info("Detected Suna default agent - enabling self-configuration capabilities")
-        suna_builder_enabled = True
+    # Check if this is Suni (default agent) and enable builder capabilities for self-configuration
+    suni_builder_enabled = False
+    if agent_config and agent_config.get('is_suni_default', False):
+        logger.info("Detected Suni default agent - enabling self-configuration capabilities")
+        suni_builder_enabled = True
         
         from agent.tools.agent_builder_tools.agent_config_tool import AgentConfigTool
         from agent.tools.agent_builder_tools.mcp_search_tool import MCPSearchTool
@@ -160,16 +160,16 @@ async def run_agent(
         from services.supabase import DBConnection
         db = DBConnection()
         
-        # Use Suna's own agent ID for self-configuration
-        suna_agent_id = agent_config['agent_id']
+        # Use Suni's own agent ID for self-configuration
+        suni_agent_id = agent_config['agent_id']
         
-        thread_manager.add_tool(AgentConfigTool, thread_manager=thread_manager, db_connection=db, agent_id=suna_agent_id)
-        thread_manager.add_tool(MCPSearchTool, thread_manager=thread_manager, db_connection=db, agent_id=suna_agent_id)
-        thread_manager.add_tool(CredentialProfileTool, thread_manager=thread_manager, db_connection=db, agent_id=suna_agent_id)
-        thread_manager.add_tool(WorkflowTool, thread_manager=thread_manager, db_connection=db, agent_id=suna_agent_id)
-        thread_manager.add_tool(TriggerTool, thread_manager=thread_manager, db_connection=db, agent_id=suna_agent_id)
+        thread_manager.add_tool(AgentConfigTool, thread_manager=thread_manager, db_connection=db, agent_id=suni_agent_id)
+        thread_manager.add_tool(MCPSearchTool, thread_manager=thread_manager, db_connection=db, agent_id=suni_agent_id)
+        thread_manager.add_tool(CredentialProfileTool, thread_manager=thread_manager, db_connection=db, agent_id=suni_agent_id)
+        thread_manager.add_tool(WorkflowTool, thread_manager=thread_manager, db_connection=db, agent_id=suni_agent_id)
+        thread_manager.add_tool(TriggerTool, thread_manager=thread_manager, db_connection=db, agent_id=suni_agent_id)
         
-        logger.info(f"Enabled Suna self-configuration with agent ID: {suna_agent_id}")
+        logger.info(f"Enabled Suni self-configuration with agent ID: {suni_agent_id}")
     
     # Original agent builder logic for custom agents (preserved)
     if is_agent_builder:
@@ -189,7 +189,7 @@ async def run_agent(
         
 
     if enabled_tools is None:
-        logger.info("No agent specified - registering all tools for full Suna capabilities")
+        logger.info("No agent specified - registering all tools for full Suni capabilities")
         thread_manager.add_tool(SandboxShellTool, project_id=project_id, thread_manager=thread_manager)
         thread_manager.add_tool(SandboxFilesTool, project_id=project_id, thread_manager=thread_manager)
         thread_manager.add_tool(SandboxBrowserTool, project_id=project_id, thread_id=thread_id, thread_manager=thread_manager)
@@ -333,10 +333,10 @@ async def run_agent(
     if agent_config and agent_config.get('system_prompt'):
         custom_system_prompt = agent_config['system_prompt'].strip()
         
-        # Special case: If this is Suna with builder capabilities enabled, enhance the default prompt
-        if suna_builder_enabled:
-            system_content = custom_system_prompt + "\n\n" + _get_suna_builder_enhancement()
-            logger.info(f"Using Suna default system prompt with self-configuration capabilities")
+        # Special case: If this is Suni with builder capabilities enabled, enhance the default prompt
+        if suni_builder_enabled:
+            system_content = custom_system_prompt + "\n\n" + _get_suni_builder_enhancement()
+            logger.info(f"Using Suni default system prompt with self-configuration capabilities")
         else:
             # Completely replace the default system prompt with the custom one
             # This prevents confusion and tool hallucination

@@ -380,7 +380,7 @@ const StepNode = ({ id, data, selected }: any) => {
                                     }}
                                   >
                                     <div className="flex items-center gap-2">
-                                      <Store className="h-4 w-4 text-blue-500" />
+                                      <Store className="h-4 w-4 text-darkblue-500" />
                                       <div className="flex flex-col">
                                         <span>Browse App Registry</span>
                                         <span className="text-xs text-muted-foreground">GitHub, Slack, Google Drive...</span>

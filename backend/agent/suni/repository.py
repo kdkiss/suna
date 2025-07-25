@@ -6,7 +6,7 @@ from utils.logger import logger
 
 
 @dataclass
-class SunaAgentRecord:
+class SuniAgentRecord:
     agent_id: str
     account_id: str
     name: str
@@ -15,7 +15,7 @@ class SunaAgentRecord:
     is_active: bool
     
     @classmethod
-    def from_db_row(cls, row: Dict[str, Any]) -> 'SunaAgentRecord':
+    def from_db_row(cls, row: Dict[str, Any]) -> 'SuniAgentRecord':
         metadata = row.get('metadata', {})
         return cls(
             agent_id=row['agent_id'],
@@ -27,25 +27,25 @@ class SunaAgentRecord:
         )
 
 
-class SunaAgentRepository:
+class SuniAgentRepository:
     def __init__(self, db: DBConnection = None):
         self.db = db or DBConnection()
     
-    async def find_all_suna_agents(self) -> List[SunaAgentRecord]:
+    async def find_all_suni_agents(self) -> List[SuniAgentRecord]:
         try:
             client = await self.db.client
             result = await client.table('agents').select(
                 'agent_id, account_id, name, metadata'
-            ).eq('metadata->>is_suna_default', 'true').execute()
+            ).eq('metadata->>is_suni_default', 'true').execute()
             
-            return [SunaAgentRecord.from_db_row(row) for row in result.data]
+            return [SuniAgentRecord.from_db_row(row) for row in result.data]
             
         except Exception as e:
-            logger.error(f"Failed to find Suna agents: {e}")
+            logger.error(f"Failed to find Suni agents: {e}")
             raise
     
-    async def find_suna_agents_needing_sync(self, target_version_tag: str) -> List[SunaAgentRecord]:
-        agents = await self.find_all_suna_agents()
+    async def find_suni_agents_needing_sync(self, target_version_tag: str) -> List[SuniAgentRecord]:
+        agents = await self.find_all_suni_agents()
         return [
             agent for agent in agents 
             if agent.current_version_tag != target_version_tag
@@ -98,7 +98,7 @@ class SunaAgentRepository:
                     'agentpress': {}
                 },
                 'metadata': {
-                    'is_suna_default': True,
+                    'is_suni_default': True,
                     'centrally_managed': True
                 }
             }
@@ -134,11 +134,11 @@ class SunaAgentRepository:
             
             total_result = await client.table('agents').select(
                 'agent_id', count='exact'
-            ).eq('metadata->>is_suna_default', 'true').execute()
+            ).eq('metadata->>is_suni_default', 'true').execute()
             
             total_count = total_result.count or 0
             
-            agents = await self.find_all_suna_agents()
+            agents = await self.find_all_suni_agents()
             version_dist = {}
             for agent in agents:
                 version = agent.current_version_tag
@@ -154,38 +154,38 @@ class SunaAgentRepository:
             logger.error(f"Failed to get agent stats: {e}")
             return {"error": str(e)}
     
-    async def create_suna_agent_simple(
+    async def create_suni_agent_simple(
         self, 
         account_id: str,
         version_tag: str
     ) -> str:
         try:
-            from agent.suna.config import SunaConfig
+            from agent.suni.config import SuniConfig
             
             client = await self.db.client
             
             agent_data = {
                 "account_id": account_id,
-                "name": SunaConfig.NAME,
-                "description": SunaConfig.DESCRIPTION,
+                "name": SuniConfig.NAME,
+                "description": SuniConfig.DESCRIPTION,
                 "is_default": True,
-                "system_prompt": "[SUNA_MANAGED]",
+                "system_prompt": "[SUNI_MANAGED]",
                 "agentpress_tools": {},
-                "configured_mcps": SunaConfig.DEFAULT_MCPS,
-                "custom_mcps": SunaConfig.DEFAULT_CUSTOM_MCPS,
+                "configured_mcps": SuniConfig.DEFAULT_MCPS,
+                "custom_mcps": SuniConfig.DEFAULT_CUSTOM_MCPS,
                 "config": {
                     'tools': {
-                        'mcp': SunaConfig.DEFAULT_MCPS,
-                        'custom_mcp': SunaConfig.DEFAULT_CUSTOM_MCPS,
+                        'mcp': SuniConfig.DEFAULT_MCPS,
+                        'custom_mcp': SuniConfig.DEFAULT_CUSTOM_MCPS,
                         'agentpress': {}
                     },
                     'metadata': {
-                        'is_suna_default': True,
+                        'is_suni_default': True,
                         'centrally_managed': True
                     }
                 },
                 "metadata": {
-                    "is_suna_default": True,
+                    "is_suni_default": True,
                     "centrally_managed": True,
                     "config_version": version_tag,
                     "installation_date": datetime.now(timezone.utc).isoformat()
@@ -197,13 +197,13 @@ class SunaAgentRepository:
             
             if result.data:
                 agent_id = result.data[0]['agent_id']
-                logger.info(f"Created minimal Suna agent {agent_id} for {account_id}")
+                logger.info(f"Created minimal Suni agent {agent_id} for {account_id}")
                 return agent_id
             
             raise Exception("No data returned from insert")
             
         except Exception as e:
-            logger.error(f"Failed to create Suna agent for {account_id}: {e}")
+            logger.error(f"Failed to create Suni agent for {account_id}: {e}")
             raise
     
     async def update_agent_metadata(
@@ -211,13 +211,13 @@ class SunaAgentRepository:
         agent_id: str,
         version_tag: str
     ) -> bool:
-        """Update only metadata for a Suna agent (system prompt/tools read from SunaConfig)"""
+        """Update only metadata for a Suni agent (system prompt/tools read from SuniConfig)"""
         try:
             client = await self.db.client
             
             update_data = {
                 "metadata": {
-                    "is_suna_default": True,
+                    "is_suni_default": True,
                     "centrally_managed": True,
                     "config_version": version_tag,
                     "last_central_update": datetime.now(timezone.utc).isoformat()

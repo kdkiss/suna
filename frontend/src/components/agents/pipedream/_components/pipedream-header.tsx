@@ -12,7 +12,7 @@ export const PipedreamHeader: React.FC<PipedreamHeaderProps> = ({
   currentAgentId,
   onAgentChange,
   agentName,
-  isSunaAgent
+  isSuniAgent
 }) => {
   return (
     <div className="flex-shrink-0 border-b bg-background px-4 py-3">
@@ -23,7 +23,7 @@ export const PipedreamHeader: React.FC<PipedreamHeaderProps> = ({
               <h1 className="text-xl font-semibold text-gray-900 dark:text-white">
                 {agentName ? `Integrations for ${agentName}` : 'Integrations'}
               </h1>
-              <Badge variant="secondary" className="bg-blue-50 text-blue-700 border-blue-200 dark:border-blue-900 dark:bg-blue-900/20 dark:text-blue-400 text-xs">
+              <Badge variant="secondary" className="bg-darkblue-50 text-darkblue-700 border-darkblue-200 dark:border-darkblue-900 dark:bg-darkblue-900/20 dark:text-darkblue-400 text-xs">
                 <Sparkles className="h-3 w-3" />
                 New
               </Badge>
@@ -51,7 +51,7 @@ export const PipedreamHeader: React.FC<PipedreamHeaderProps> = ({
             <AgentSelector
               selectedAgentId={currentAgentId}
               onAgentSelect={onAgentChange}
-              isSunaAgent={isSunaAgent}
+              isSuniAgent={isSuniAgent}
             />
           </div>
         )}

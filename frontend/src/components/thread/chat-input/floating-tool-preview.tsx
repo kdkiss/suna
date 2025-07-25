@@ -126,7 +126,7 @@ export const FloatingToolPreview: React.FC<FloatingToolPreviewProps> = ({
                   className={cn(
                     "w-10 h-10 rounded-2xl flex items-center justify-center",
                     isStreaming
-                      ? "bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800"
+                      ? "bg-darkblue-50 dark:bg-darkblue-900/20 border border-darkblue-200 dark:border-darkblue-800"
                       : isSuccess
                         ? "bg-green-50 dark:bg-green-900/20 border border-green-300 dark:border-green-800"
                         : "bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800"
@@ -134,7 +134,7 @@ export const FloatingToolPreview: React.FC<FloatingToolPreviewProps> = ({
                   style={{ opacity: isExpanding ? 0 : 1 }}
                 >
                   {isStreaming ? (
-                    <CircleDashed className="h-5 w-5 text-blue-500 dark:text-blue-400 animate-spin" style={{ opacity: isExpanding ? 0 : 1 }} />
+                    <CircleDashed className="h-5 w-5 text-darkblue-500 dark:text-darkblue-400 animate-spin" style={{ opacity: isExpanding ? 0 : 1 }} />
                   ) : (
                     <CurrentToolIcon className="h-5 w-5 text-foreground" style={{ opacity: isExpanding ? 0 : 1 }} />
                   )}
@@ -152,14 +152,14 @@ export const FloatingToolPreview: React.FC<FloatingToolPreviewProps> = ({
                   <div className={cn(
                     "w-2 h-2 rounded-full",
                     isStreaming
-                      ? "bg-blue-500 animate-pulse"
+                      ? "bg-darkblue-500 animate-pulse"
                       : isSuccess
                         ? "bg-green-500"
                         : "bg-red-500"
                   )} />
                   <span className="text-xs text-muted-foreground truncate">
                     {isStreaming
-                      ? `${agentName || 'Suna'} is working...`
+                      ? `${agentName || 'Suni'} is working...`
                       : isSuccess
                         ? "Success"
                         : "Failed"

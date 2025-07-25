@@ -118,7 +118,7 @@ export const PipedreamConnectButton: React.FC<PipedreamConnectButtonProps> = ({
                 />
               ) : null}
               <Link2 
-                className={`h-5 w-5 text-blue-600 dark:text-blue-400 ${iconData?.icon_url ? 'hidden' : 'block'}`} 
+                className={`h-5 w-5 text-darkblue-600 dark:text-darkblue-400 ${iconData?.icon_url ? 'hidden' : 'block'}`} 
               />
             </div>
             <div>
@@ -130,7 +130,7 @@ export const PipedreamConnectButton: React.FC<PipedreamConnectButtonProps> = ({
           <Button 
             onClick={handleConnect}
             size="sm"
-            className='bg-blue-600 hover:bg-blue-700 text-white gap-2 flex-shrink-0'
+            className='bg-darkblue-600 hover:bg-darkblue-700 text-white gap-2 flex-shrink-0'
           >
             Connect to {appName}
             <ExternalLink className="h-4 w-4" />

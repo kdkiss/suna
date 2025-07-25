@@ -195,7 +195,7 @@ export function CheckProfileConnectionToolView({
               {available_tools.length > 0 && (
                 <div className="border rounded-xl p-4 space-y-3">
                   <div className="flex items-center gap-2">
-                    <Wrench className="w-4 h-4 text-blue-500" />
+                    <Wrench className="w-4 h-4 text-darkblue-500" />
                     <h3 className="font-medium text-zinc-900 dark:text-zinc-100">
                       Available Tools
                     </h3>
@@ -210,8 +210,8 @@ export function CheckProfileConnectionToolView({
                         key={index}
                         className="flex items-center gap-3 p-3 bg-zinc-50 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-xl"
                       >
-                        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/40 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 flex items-center justify-center">
-                          <Zap className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-darkblue-100 to-darkblue-50 dark:from-darkblue-900/40 dark:to-darkblue-800/20 border border-darkblue-200 dark:border-darkblue-800 flex items-center justify-center">
+                          <Zap className="w-4 h-4 text-darkblue-600 dark:text-darkblue-400" />
                         </div>
                         <div>
                           <p className="font-medium text-zinc-900 dark:text-zinc-100">

@@ -524,7 +524,7 @@
     & .hljs-built_in,
     & .hljs-name,
     & .hljs-tag {
-      color: theme('colors.blue.400');
+      color: theme('colors.darkblue.400');
     }
 
     & .hljs-string,

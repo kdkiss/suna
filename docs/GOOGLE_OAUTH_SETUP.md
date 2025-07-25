@@ -1,6 +1,6 @@
 # Google OAuth Setup Guide
 
-This guide will help you configure Google Sign-In for your Suna application to avoid common errors like "Access blocked: This app's request is invalid".
+This guide will help you configure Google Sign-In for your Suni application to avoid common errors like "Access blocked: This app's request is invalid".
 
 ## Prerequisites
 
@@ -11,7 +11,7 @@ This guide will help you configure Google Sign-In for your Suna application to a
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Click "Select a project" → "New Project"
-3. Enter a project name (e.g., "Suna App")
+3. Enter a project name (e.g., "Suni App")
 4. Click "Create"
 
 ## Step 2: Configure OAuth Consent Screen
@@ -20,7 +20,7 @@ This guide will help you configure Google Sign-In for your Suna application to a
 2. Select "External" user type (unless you have a Google Workspace account)
 3. Click "Create"
 4. Fill in the required fields:
-   - **App name**: Your application name (e.g., "Suna")
+   - **App name**: Your application name (e.g., "Suni")
    - **User support email**: Your email address
    - **App logo**: Optional, but recommended
    - **App domain**: Your domain (for local dev, skip this)
@@ -43,7 +43,7 @@ This guide will help you configure Google Sign-In for your Suna application to a
 2. Click "Create Credentials" → "OAuth client ID"
 3. Select "Web application" as the application type
 4. Configure the client:
-   - **Name**: "Suna Web Client" (or any name you prefer)
+   - **Name**: "Suni Web Client" (or any name you prefer)
    - **Authorized JavaScript origins**:
      - Add `http://localhost:3000` (for local development)
      - Add `https://yourdomain.com` (for production)
