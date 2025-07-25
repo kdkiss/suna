@@ -52,14 +52,14 @@ interface AgentSelectorProps {
   selectedAgentId?: string;
   onAgentSelect?: (agentId: string | undefined) => void;
   disabled?: boolean;
-  isSunaAgent?: boolean;
+  isSuniAgent?: boolean;
 }
 
 export const AgentSelector: React.FC<AgentSelectorProps> = ({
   selectedAgentId,
   onAgentSelect,
   disabled = false,
-  isSunaAgent
+  isSuniAgent
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -107,29 +107,29 @@ export const AgentSelector: React.FC<AgentSelectorProps> = ({
     
     if (selectedAgent) {
       console.log('Selected agent found:', selectedAgent.name, 'with ID:', selectedAgent.id);
-      const isSelectedAgentSuna = selectedAgent.metadata?.is_suna_default || false;
+      const isSelectedAgentSuni = selectedAgent.metadata?.is_suni_default || false;
       return {
         name: selectedAgent.name,
-        icon: isSelectedAgentSuna ? <KortixLogo size={16} /> : selectedAgent.icon
+        icon: isSelectedAgentSuni ? <KortixLogo size={16} /> : selectedAgent.icon
       };
     }
     
     // If selectedAgentId is not undefined but no agent is found, log a warning
     if (selectedAgentId !== undefined) {
-      console.warn('Agent with ID', selectedAgentId, 'not found, falling back to Suna');
+      console.warn('Agent with ID', selectedAgentId, 'not found, falling back to Suni');
     }
     
-    // Default to Suna (the first agent which has id: undefined)
+    // Default to Suni (the first agent which has id: undefined)
     const defaultAgent = allAgents[0];
-    const isDefaultAgentSuna = defaultAgent?.metadata?.is_suna_default || false;
+    const isDefaultAgentSuni = defaultAgent?.metadata?.is_suni_default || false;
     return {
-      name: defaultAgent?.name || 'Suna',
-      icon: isDefaultAgentSuna ? <KortixLogo size={16} /> : (defaultAgent?.icon || <KortixLogo size={16} />)
+      name: defaultAgent?.name || 'Suni',
+      icon: isDefaultAgentSuni ? <KortixLogo size={16} /> : (defaultAgent?.icon || <KortixLogo size={16} />)
     };
   };
 
   const handleAgentSelect = (agentId: string | undefined) => {
-    console.log('Agent selected:', agentId === undefined ? 'Suna (default)' : agentId);
+    console.log('Agent selected:', agentId === undefined ? 'Suni (default)' : agentId);
     onAgentSelect?.(agentId);
     setIsOpen(false);
   };
@@ -186,7 +186,7 @@ export const AgentSelector: React.FC<AgentSelectorProps> = ({
     const isSelected = agent.id === selectedAgentId;
     const isHighlighted = index === highlightedIndex;
     const hasSettings = agent.type === 'custom' && agent.id;
-    const isThisAgentSuna = agent.metadata?.is_suna_default || false;
+    const isThisAgentSuni = agent.metadata?.is_suni_default || false;
 
     return (
       <TooltipProvider key={agent.id || 'default'}>
@@ -201,7 +201,7 @@ export const AgentSelector: React.FC<AgentSelectorProps> = ({
               onMouseEnter={() => setHighlightedIndex(index)}
             >
               <div className="flex-shrink-0">
-                {isThisAgentSuna ? (
+                {isThisAgentSuni ? (
                   <KortixLogo size={16} />
                 ) : (
                   agent.icon
@@ -229,8 +229,8 @@ export const AgentSelector: React.FC<AgentSelectorProps> = ({
                   </Button>
                 )}
                 {isSelected && (
-                  <div className="h-6 w-6 rounded-full bg-blue-500/10 flex items-center justify-center">
-                    <Check className="h-3 w-3 text-blue-600/80" />
+                  <div className="h-6 w-6 rounded-full bg-darkblue-500/10 flex items-center justify-center">
+                    <Check className="h-3 w-3 text-darkblue-600/80" />
                   </div>
                 )}
               </div>

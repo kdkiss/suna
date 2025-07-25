@@ -64,9 +64,9 @@ export function DashboardContent() {
   const selectedAgent = selectedAgentId
     ? agents.find(agent => agent.agent_id === selectedAgentId)
     : null;
-  const displayName = selectedAgent?.name || 'Suna';
+  const displayName = selectedAgent?.name || 'Suni';
   const agentAvatar = selectedAgent?.avatar;
-  const isSunaAgent = selectedAgent?.metadata?.is_suna_default || false;
+  const isSuniAgent = selectedAgent?.metadata?.is_suni_default || false;
 
   const threadQuery = useThreadQuery(initiatedThreadId || '');
 
@@ -94,7 +94,7 @@ export function DashboardContent() {
   }, [threadQuery.data, initiatedThreadId, router]);
 
   const secondaryGradient =
-    'bg-gradient-to-r from-blue-500 to-blue-500 bg-clip-text text-transparent';
+    'bg-gradient-to-r from-darkblue-500 to-darkblue-500 bg-clip-text text-transparent';
 
   const handleSubmit = async (
     message: string,
@@ -213,7 +213,7 @@ export function DashboardContent() {
               </h1>
               <h1 className="ml-1 tracking-tight text-4xl font-semibold leading-tight text-primary flex items-center gap-3">
                 {displayName}
-                {isSunaAgent ? (
+                {isSuniAgent ? (
                   <span className="ml-2 flex items-center">
                     <KortixLogo size={24} />
                   </span>

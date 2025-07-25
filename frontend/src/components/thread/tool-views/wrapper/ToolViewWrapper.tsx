@@ -84,7 +84,7 @@ export function ToolViewWrapper({
 
             {isStreaming && showStatus && (
               <div className="flex items-center gap-2">
-                <CircleDashed className="h-3.5 w-3.5 text-blue-500 animate-spin" />
+                <CircleDashed className="h-3.5 w-3.5 text-darkblue-500 animate-spin" />
                 <span>{customStatus?.streaming || "Processing..."}</span>
               </div>
             )}

@@ -1,4 +1,4 @@
-# Suna Frontend
+# Suni Frontend
 
 ## Quick Setup
 

@@ -18,12 +18,12 @@ const AGENT_EMOJIS = [
 const AVATAR_COLORS = [
   '#FF6B6B', // Red
   '#4ECDC4', // Teal
-  '#45B7D1', // Sky Blue
+  '#45B7D1', // Sky Darkblue
   '#96CEB4', // Mint Green
   '#FECA57', // Yellow
   '#FF9FF3', // Pink
-  '#54A0FF', // Blue
-  '#48DBFB', // Light Blue
+  '#54A0FF', // Darkblue
+  '#48DBFB', // Light Darkblue
   '#1DD1A1', // Emerald
   '#00D2D3', // Cyan
   '#5F27CD', // Purple
@@ -34,9 +34,9 @@ const AVATAR_COLORS = [
   '#7BED9F', // Light Green
   '#70A1FF', // Periwinkle
   '#5352ED', // Indigo
-  '#3742FA', // Royal Blue
+  '#3742FA', // Royal Darkblue
   '#2ED573', // Green
-  '#1E90FF', // Dodger Blue
+  '#00008B', // Dodger Darkblue
   '#FF1744', // Red Accent
   '#D500F9', // Purple Accent
   '#00E676', // Green Accent
@@ -49,10 +49,10 @@ const AVATAR_COLORS = [
   '#6C5CE7', // Violet
   '#00B894', // Mint
   '#00CEC9', // Turquoise
-  '#0984E3', // Blue
+  '#0984E3', // Darkblue
   '#6C5CE7', // Purple
   '#A29BFE', // Light Purple
-  '#74B9FF', // Light Blue
+  '#74B9FF', // Light Darkblue
   '#81ECEC', // Light Cyan
   '#55A3FF', // Sky
   '#FD79A8', // Pink
@@ -60,7 +60,7 @@ const AVATAR_COLORS = [
   '#FF7675', // Light Red
   '#E17055', // Terra Cotta
   '#FAB1A0', // Peach
-  '#74B9FF', // Powder Blue
+  '#74B9FF', // Powder Darkblue
   '#A29BFE', // Periwinkle
   '#DFE6E9', // Light Gray
   '#B2BEC3', // Gray

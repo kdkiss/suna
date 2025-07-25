@@ -3,7 +3,7 @@ from typing import Dict, Any, Optional, List
 from uuid import uuid4
 
 from ..domain.entities import AgentTemplate, ConfigType, MCPRequirementValue
-from ..domain.exceptions import TemplateNotFoundError, TemplateAccessDeniedError, SunaDefaultAgentTemplateError
+from ..domain.exceptions import TemplateNotFoundError, TemplateAccessDeniedError, SuniDefaultAgentTemplateError
 from ..repositories.template_repository import TemplateRepository
 from ..repositories.agent_repository import AgentRepository
 from ..support.validator import TemplateValidator
@@ -28,9 +28,9 @@ class TemplateCreationService:
         self._factory = factory
         self._logger = logger
     
-    def _is_suna_default_agent(self, agent: Dict[str, Any]) -> bool:
+    def _is_suni_default_agent(self, agent: Dict[str, Any]) -> bool:
         metadata = agent.get('metadata', {})
-        return metadata.get('is_suna_default', False)
+        return metadata.get('is_suni_default', False)
     
     async def create_from_agent(
         self,
@@ -48,9 +48,9 @@ class TemplateCreationService:
         if agent['account_id'] != creator_id:
             raise TemplateAccessDeniedError("You can only create templates from your own agents")
         
-        # Check if this is a Suna default agent
-        if self._is_suna_default_agent(agent):
-            raise SunaDefaultAgentTemplateError("Cannot create templates from the default Suna agent")
+        # Check if this is a Suni default agent
+        if self._is_suni_default_agent(agent):
+            raise SuniDefaultAgentTemplateError("Cannot create templates from the default Suni agent")
         
         version_data = await self._get_version_data(agent, creator_id)
         config = self._extract_config(agent, version_data)

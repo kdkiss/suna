@@ -1,4 +1,4 @@
-# Suna Backend
+# Suni Backend
 
 ## Quick Setup
 

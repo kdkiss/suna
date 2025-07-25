@@ -62,7 +62,7 @@ export function GetCredentialProfilesToolView({
   const getActiveStatus = (isActive: boolean) => {
     return {
       color: isActive 
-        ? 'bg-blue-100 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800'
+        ? 'bg-darkblue-100 text-darkblue-700 border-darkblue-200 dark:bg-darkblue-900/20 dark:text-darkblue-300 dark:border-darkblue-800'
         : 'bg-gray-100 text-gray-700 border-gray-200 dark:bg-gray-900/20 dark:text-gray-300 dark:border-gray-800',
       text: isActive ? 'Active' : 'Inactive'
     };
@@ -73,8 +73,8 @@ export function GetCredentialProfilesToolView({
       <CardHeader className="h-14 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2">
         <div className="flex flex-row items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="relative p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20">
-              <Users className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+            <div className="relative p-2 rounded-xl bg-gradient-to-br from-darkblue-500/20 to-darkblue-600/10 border border-darkblue-500/20">
+              <Users className="w-5 h-5 text-darkblue-500 dark:text-darkblue-400" />
             </div>
             <div>
               <CardTitle className="text-base font-medium text-zinc-900 dark:text-zinc-100">
@@ -113,8 +113,8 @@ export function GetCredentialProfilesToolView({
         {isStreaming ? (
           <LoadingState
             icon={Users}
-            iconColor="text-blue-500 dark:text-blue-400"
-            bgColor="bg-gradient-to-b from-blue-100 to-blue-50 shadow-inner dark:from-blue-800/40 dark:to-blue-900/60 dark:shadow-blue-950/20"
+            iconColor="text-darkblue-500 dark:text-darkblue-400"
+            bgColor="bg-gradient-to-b from-darkblue-100 to-darkblue-50 shadow-inner dark:from-darkblue-800/40 dark:to-darkblue-900/60 dark:shadow-darkblue-950/20"
             title="Loading credential profiles"
             filePath={app_slug ? `"${app_slug}"` : undefined}
             showProgress={true}
@@ -130,8 +130,8 @@ export function GetCredentialProfilesToolView({
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 dark:from-blue-900/40 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 flex items-center justify-center relative">
-                          <User className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-darkblue-100 to-darkblue-50 dark:from-darkblue-900/40 dark:to-darkblue-800/20 border border-darkblue-200 dark:border-darkblue-800 flex items-center justify-center relative">
+                          <User className="w-6 h-6 text-darkblue-600 dark:text-darkblue-400" />
                           {profile.is_default && (
                             <div className="absolute -top-1 -right-1">
                               <div className="bg-yellow-500 rounded-full p-1">

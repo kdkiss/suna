@@ -11,16 +11,16 @@ interface AgentToolsConfigurationProps {
   tools: Record<string, { enabled: boolean; description: string }>;
   onToolsChange: (tools: Record<string, { enabled: boolean; description: string }>) => void;
   disabled?: boolean;
-  isSunaAgent?: boolean;
+  isSuniAgent?: boolean;
 }
 
-export const AgentToolsConfiguration = ({ tools, onToolsChange, disabled = false, isSunaAgent = false }: AgentToolsConfigurationProps) => {
+export const AgentToolsConfiguration = ({ tools, onToolsChange, disabled = false, isSuniAgent = false }: AgentToolsConfigurationProps) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const handleToolToggle = (toolName: string, enabled: boolean) => {
-    if (disabled && isSunaAgent) {
+    if (disabled && isSuniAgent) {
       toast.error("Tools cannot be modified", {
-        description: "Suna's default tools are managed centrally and cannot be changed.",
+        description: "Suni's default tools are managed centrally and cannot be changed.",
       });
       return;
     }

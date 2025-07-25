@@ -10,7 +10,7 @@ import React, {
 import { createClient } from '@/lib/supabase/client';
 import { User, Session } from '@supabase/supabase-js';
 import { SupabaseClient } from '@supabase/supabase-js';
-import { checkAndInstallSunaAgent } from '@/lib/utils/install-suna-agent';
+import { checkAndInstallSuniAgent } from '@/lib/utils/install-suni-agent';
 
 type AuthContextType = {
   supabase: SupabaseClient;
@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         if (isLoading) setIsLoading(false);
         
         if (event === 'SIGNED_IN' && newSession?.user) {
-          await checkAndInstallSunaAgent(newSession.user.id, newSession.user.created_at);
+          await checkAndInstallSuniAgent(newSession.user.id, newSession.user.created_at);
         } else if (event === 'MFA_CHALLENGE_VERIFIED') {
           console.log('✅ MFA challenge verified, session updated');
           // Session is automatically updated by Supabase, just log for debugging

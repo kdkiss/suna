@@ -103,25 +103,25 @@ export default function AgentConfigurationPage() {
   const handleSave = useCallback(async () => {
     if (!agent || isViewingOldVersion) return;
     
-    const isSunaAgent = agent?.metadata?.is_suna_default || false;
+    const isSuniAgent = agent?.metadata?.is_suni_default || false;
     const restrictions = agent?.metadata?.restrictions || {};
     
-    if (isSunaAgent) {
+    if (isSuniAgent) {
       if (restrictions.name_editable === false && formData.name !== originalData.name) {
         toast.error("Cannot save changes", {
-          description: "Suna's name cannot be modified.",
+          description: "Suni's name cannot be modified.",
         });
         return;
       }
       if (restrictions.system_prompt_editable === false && formData.system_prompt !== originalData.system_prompt) {
         toast.error("Cannot save changes", {
-          description: "Suna's system prompt cannot be modified.",
+          description: "Suni's system prompt cannot be modified.",
         });
         return;
       }
       if (restrictions.tools_editable === false && JSON.stringify(formData.agentpress_tools) !== JSON.stringify(originalData.agentpress_tools)) {
         toast.error("Cannot save changes", {
-          description: "Suna's default tools cannot be modified.",
+          description: "Suni's default tools cannot be modified.",
         });
         return;
       }
@@ -280,7 +280,7 @@ export default function AgentConfigurationPage() {
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
-                      {!agent?.metadata?.is_suna_default && (
+                      {!agent?.metadata?.is_suni_default && (
                         <AgentVersionSwitcher
                           agentId={agentId}
                           currentVersionId={agent?.current_version_id}

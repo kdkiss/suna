@@ -29,7 +29,7 @@ export const CustomServerStep: React.FC<CustomServerStepProps> = ({
     <div className="space-y-4">
       {step.custom_type && (
         <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-950 dark:text-blue-300 dark:border-blue-800">
+          <Badge variant="outline" className="bg-darkblue-50 text-darkblue-700 border-darkblue-200 dark:bg-darkblue-950 dark:text-darkblue-300 dark:border-darkblue-800">
             {step.custom_type.toUpperCase()}
           </Badge>
           <span className="text-sm text-muted-foreground">Custom Server</span>

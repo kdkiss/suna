@@ -23,7 +23,7 @@ interface AgentHeaderProps {
   onStyleChange: (emoji: string, color: string) => void;
   onTabChange: (value: string) => void;
   agentMetadata?: {
-    is_suna_default?: boolean;
+    is_suni_default?: boolean;
     restrictions?: {
       name_editable?: boolean;
     };
@@ -41,15 +41,15 @@ export function AgentHeader({
   onTabChange,
   agentMetadata,
 }: AgentHeaderProps) {
-  const isSunaAgent = agentMetadata?.is_suna_default || false;
-  console.log('isSunaAgent', isSunaAgent);
+  const isSuniAgent = agentMetadata?.is_suni_default || false;
+  console.log('isSuniAgent', isSuniAgent);
   const restrictions = agentMetadata?.restrictions || {};
   const isNameEditable = !isViewingOldVersion && (restrictions.name_editable !== false);
   
   const handleNameChange = (value: string) => {
-    if (!isNameEditable && isSunaAgent) {
+    if (!isNameEditable && isSuniAgent) {
       toast.error("Name cannot be edited", {
-        description: "Suna's name is managed centrally and cannot be changed.",
+        description: "Suni's name is managed centrally and cannot be changed.",
       });
       return;
     }
@@ -59,7 +59,7 @@ export function AgentHeader({
     <div className="flex items-center justify-between mb-4">
       <div className="flex items-center gap-3">
         <div className="relative">
-          {isSunaAgent ? (
+          {isSuniAgent ? (
             <div className="h-9 w-9 bg-background rounded-lg bg-muted border border flex items-center justify-center">
               <KortixLogo size={16} />
             </div>
@@ -85,7 +85,7 @@ export function AgentHeader({
             onSave={handleNameChange}
             className={cn(
               "text-lg font-semibold bg-transparent text-foreground placeholder:text-muted-foreground",
-              !isNameEditable && isSunaAgent && "cursor-not-allowed opacity-75"
+              !isNameEditable && isSuniAgent && "cursor-not-allowed opacity-75"
             )}
             placeholder="Agent name..."
             disabled={!isNameEditable}

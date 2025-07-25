@@ -170,12 +170,12 @@ async def activate_version(
             raise HTTPException(status_code=404, detail="Agent not found")
         
         agent_metadata = agent_result.data.get('metadata', {})
-        is_suna_agent = agent_metadata.get('is_suna_default', False)
+        is_suni_agent = agent_metadata.get('is_suni_default', False)
         restrictions = agent_metadata.get('restrictions', {})
         
-        if is_suna_agent:
-            logger.warning(f"Version activation attempt on Suna default agent {agent_id} by user {user_id} for version {version_id}")
-            logger.info(f"Allowing version activation for Suna agent {agent_id} - monitoring for security compliance")
+        if is_suni_agent:
+            logger.warning(f"Version activation attempt on Suni default agent {agent_id} by user {user_id} for version {version_id}")
+            logger.info(f"Allowing version activation for Suni agent {agent_id} - monitoring for security compliance")
             
         
         agent_id_obj = AgentId.from_string(agent_id)
@@ -186,8 +186,8 @@ async def activate_version(
             agent_id_obj, version_id_obj, user_id_obj
         )
         
-        if is_suna_agent:
-            logger.info(f"Successfully activated version {version_id} for Suna agent {agent_id} by user {user_id}")
+        if is_suni_agent:
+            logger.info(f"Successfully activated version {version_id} for Suni agent {agent_id} by user {user_id}")
         
         return {"message": "Version activated successfully"}
     except UnauthorizedError as e:

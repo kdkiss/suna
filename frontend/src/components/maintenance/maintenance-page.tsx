@@ -46,7 +46,7 @@ export function MaintenancePage() {
                 </div>
               </div>
               <div className="flex justify-center">
-                <Badge variant="outline" className="px-3 py-1 bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-700 text-blue-800 dark:text-blue-200 font-medium">
+                <Badge variant="outline" className="px-3 py-1 bg-darkblue-50 dark:bg-darkblue-900/30 border-darkblue-200 dark:border-darkblue-700 text-darkblue-800 dark:text-darkblue-200 font-medium">
                   <AlertCircle className="h-4 w-4" />
                   System Under Maintenance
                 </Badge>

@@ -214,7 +214,7 @@ export default function PricingPage() {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
         <div className="flex flex-col items-center gap-4">
-          <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
+          <Loader2 className="w-8 h-8 animate-spin text-darkblue-500" />
           <p className="text-sm text-muted-foreground">
             Loading pricing data...
           </p>
@@ -261,7 +261,7 @@ export default function PricingPage() {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Zap className="w-5 h-5 text-blue-500" />
+            <Zap className="w-5 h-5 text-darkblue-500" />
             Understanding Tokens & Compute
           </CardTitle>
         </CardHeader>
@@ -380,7 +380,7 @@ export default function PricingPage() {
                           <div className="flex justify-between font-semibold">
                             <span className="text-muted-foreground">Cost:</span>
                             {calculatedCost !== null ? (
-                              <span className="text-blue-600">
+                              <span className="text-darkblue-600">
                                 ${calculatedCost.toFixed(2)}
                               </span>
                             ) : (
@@ -439,7 +439,7 @@ export default function PricingPage() {
                   key={model.id}
                   className={`px-6 py-4 hover:bg-muted/50 transition-colors duration-150 ${
                     selectedModelId === model.id
-                      ? 'bg-blue-50 dark:bg-blue-950/20 border-l-4 border-l-blue-500'
+                      ? 'bg-darkblue-50 dark:bg-darkblue-950/20 border-l-4 border-l-darkblue-500'
                       : ''
                   }`}
                 >
@@ -447,7 +447,7 @@ export default function PricingPage() {
                     {/* Model Name */}
                     <div className="col-span-1">
                       <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-blue-500 rounded-full flex-shrink-0"></div>
+                        <div className="w-2 h-2 bg-darkblue-500 rounded-full flex-shrink-0"></div>
                         <div className="min-w-0">
                           <div className="font-medium text-foreground truncate">
                             {model.display_name ?? model.id}

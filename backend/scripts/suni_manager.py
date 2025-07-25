@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-SUNA AGENT INSTALLER
+SUNI AGENT INSTALLER
 
 Usage:
-    python suna_manager.py install           # Install for users who don't have Suna
+    python suni_manager.py install           # Install for users who don't have Suni
 """
 
 import asyncio
@@ -15,7 +15,7 @@ from pathlib import Path
 backend_dir = Path(__file__).parent.parent
 sys.path.insert(0, str(backend_dir))
 
-from agent.suna import SunaSyncService
+from agent.suni import SuniSyncService
 from utils.logger import logger
 
 
@@ -32,20 +32,20 @@ def print_warning(message: str):
     print(f"⚠️  {message}")
 
 
-class SunaManagerCLI:
+class SuniManagerCLI:
     def __init__(self):
-        self.sync_service = SunaSyncService()
+        self.sync_service = SuniSyncService()
     
     async def install_command(self):
-        print("🚀 Installing Suna for users who don't have it")
+        print("🚀 Installing Suni for users who don't have it")
         
         result = await self.sync_service.install_for_all_missing_users()
         
         if result.success:
             if result.synced_count == 0:
-                print_success("All users already have Suna agents!")
+                print_success("All users already have Suni agents!")
             else:
-                print_success(f"Successfully installed Suna for {result.synced_count} users")
+                print_success(f"Successfully installed Suni for {result.synced_count} users")
         else:
             print_error("Installation failed!")
             for error in result.errors:
@@ -58,13 +58,13 @@ class SunaManagerCLI:
 
 async def main():
     parser = argparse.ArgumentParser(
-        description="🌞 Suna Agent Manager - Simple and robust",
+        description="🌞 Suni Agent Manager - Simple and robust",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog=__doc__
     )
     
     subparsers = parser.add_subparsers(dest='command', help='Available commands')
-    subparsers.add_parser('install', help='📦 Install Suna for users who don\'t have it')
+    subparsers.add_parser('install', help='📦 Install Suni for users who don\'t have it')
     
     args = parser.parse_args()
     
@@ -72,7 +72,7 @@ async def main():
         parser.print_help()
         return
     
-    cli = SunaManagerCLI()
+    cli = SuniManagerCLI()
     
     try:
         if args.command == 'install':

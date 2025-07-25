@@ -80,8 +80,8 @@ export function WebSearchToolView({
       <CardHeader className="h-14 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b p-2 px-4 space-y-2">
         <div className="flex flex-row items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="relative p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20">
-              <Search className="w-5 h-5 text-blue-500 dark:text-blue-400" />
+            <div className="relative p-2 rounded-xl bg-gradient-to-br from-darkblue-500/20 to-darkblue-600/10 border border-darkblue-500/20">
+              <Search className="w-5 h-5 text-darkblue-500 dark:text-darkblue-400" />
             </div>
             <div>
               <CardTitle className="text-base font-medium text-zinc-900 dark:text-zinc-100">
@@ -114,8 +114,8 @@ export function WebSearchToolView({
         {isStreaming && searchResults.length === 0 && !answer ? (
           <LoadingState
             icon={Search}
-            iconColor="text-blue-500 dark:text-blue-400"
-            bgColor="bg-gradient-to-b from-blue-100 to-blue-50 shadow-inner dark:from-blue-800/40 dark:to-blue-900/60 dark:shadow-blue-950/20"
+            iconColor="text-darkblue-500 dark:text-darkblue-400"
+            bgColor="bg-gradient-to-b from-darkblue-100 to-darkblue-50 shadow-inner dark:from-darkblue-800/40 dark:to-darkblue-900/60 dark:shadow-darkblue-950/20"
             title="Searching the web"
             filePath={query}
             showProgress={true}
@@ -136,7 +136,7 @@ export function WebSearchToolView({
                         href={image}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 hover:border-blue-300 dark:hover:border-blue-700 transition-colors shadow-sm hover:shadow-md"
+                        className="group relative overflow-hidden rounded-lg border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900 hover:border-darkblue-300 dark:hover:border-darkblue-700 transition-colors shadow-sm hover:shadow-md"
                       >
                         <img
                           src={image}
@@ -208,7 +208,7 @@ export function WebSearchToolView({
                               href={result.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="text-md font-medium text-blue-600 dark:text-blue-400 hover:underline line-clamp-1 mb-1"
+                              className="text-md font-medium text-darkblue-600 dark:text-darkblue-400 hover:underline line-clamp-1 mb-1"
                             >
                               {truncateString(cleanUrl(result.title), 50)}
                             </a>

@@ -432,12 +432,12 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
                     <AlertTriangle className="h-3.5 w-3.5 text-amber-500" />
                   )}
                   {isRecommended && (
-                    <span className="text-xs px-1.5 py-0.5 rounded-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 font-medium">
+                    <span className="text-xs px-1.5 py-0.5 rounded-sm bg-darkblue-100 dark:bg-darkblue-900 text-darkblue-600 dark:text-darkblue-300 font-medium">
                       Recommended
                     </span>
                   )}
                   {isPremium && !accessible && (
-                    <Crown className="h-3.5 w-3.5 text-blue-500" />
+                    <Crown className="h-3.5 w-3.5 text-darkblue-500" />
                   )}
                   {/* Custom model actions */}
                   {isLocalMode() && isCustom && (
@@ -463,7 +463,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
                     </>
                   )}
                   {selectedModel === opt.id && (
-                    <Check className="h-4 w-4 text-blue-500" />
+                    <Check className="h-4 w-4 text-darkblue-500" />
                   )}
                 </div>
               </DropdownMenuItem>
@@ -576,12 +576,12 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
                                   <AlertTriangle className="h-3.5 w-3.5 text-amber-500" />
                                 )}
                                 {(MODELS[model.id]?.recommended || false) && (
-                                  <span className="text-xs px-1.5 py-0.5 rounded-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 font-medium">
+                                  <span className="text-xs px-1.5 py-0.5 rounded-sm bg-darkblue-100 dark:bg-darkblue-900 text-darkblue-600 dark:text-darkblue-300 font-medium">
                                     Recommended
                                   </span>
                                 )}
                                 {selectedModel === model.id && (
-                                  <Check className="h-4 w-4 text-blue-500" />
+                                  <Check className="h-4 w-4 text-darkblue-500" />
                                 )}
                               </div>
                             </DropdownMenuItem>
@@ -599,7 +599,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
 
                 {/* Premium Models Section */}
                 <div className="mt-4 border-t border-border pt-2">
-                  <div className="px-3 py-1.5 text-xs font-medium text-blue-500 flex items-center">
+                  <div className="px-3 py-1.5 text-xs font-medium text-darkblue-500 flex items-center">
                     {/* <Crown className="h-3.5 w-3.5 mr-1.5" /> */}
                     Additional Models
                   </div>
@@ -627,11 +627,11 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
                                   <div className="flex items-center gap-2">
                                     {/* Show capabilities */}
                                     {MODELS[model.id]?.recommended && (
-                                      <span className="text-xs px-1.5 py-0.5 rounded-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 font-medium whitespace-nowrap">
+                                      <span className="text-xs px-1.5 py-0.5 rounded-sm bg-darkblue-100 dark:bg-darkblue-900 text-darkblue-600 dark:text-darkblue-300 font-medium whitespace-nowrap">
                                         Recommended
                                       </span>
                                     )}
-                                    <Crown className="h-3.5 w-3.5 text-blue-500" />
+                                    <Crown className="h-3.5 w-3.5 text-darkblue-500" />
                                   </div>
                                 </DropdownMenuItem>
                               </div>
@@ -647,10 +647,10 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
                     {/* Absolute positioned paywall overlay with gradient fade */}
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-background/95 to-transparent flex items-end justify-center">
                       <div className="w-full p-3">
-                        <div className="rounded-xl bg-gradient-to-br from-blue-50/80 to-blue-200/70 dark:from-blue-950/40 dark:to-blue-900/30 shadow-sm border border-blue-200/50 dark:border-blue-800/50 p-3">
+                        <div className="rounded-xl bg-gradient-to-br from-darkblue-50/80 to-darkblue-200/70 dark:from-darkblue-950/40 dark:to-darkblue-900/30 shadow-sm border border-darkblue-200/50 dark:border-darkblue-800/50 p-3">
                           <div className="flex flex-col space-y-2">
                             <div className="flex items-center">
-                              <Crown className="h-4 w-4 text-blue-500 mr-2 flex-shrink-0" />
+                              <Crown className="h-4 w-4 text-darkblue-500 mr-2 flex-shrink-0" />
                               <div>
                                 <p className="text-sm font-medium">Unlock all models + higher limits</p>
                               </div>

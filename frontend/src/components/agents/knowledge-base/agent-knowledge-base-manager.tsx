@@ -191,7 +191,7 @@ const getFileIconColor = (filename: string) => {
       return 'text-yellow-500';
     case 'ts':
     case 'tsx':
-      return 'text-blue-500';
+      return 'text-darkblue-500';
     case 'jsx':
       return 'text-cyan-500';
     case 'py':
@@ -199,7 +199,7 @@ const getFileIconColor = (filename: string) => {
     case 'html':
       return 'text-orange-600';
     case 'css':
-      return 'text-blue-600';
+      return 'text-darkblue-600';
     case 'json':
       return 'text-yellow-600';
     case 'md':
@@ -213,7 +213,7 @@ const getFileIconColor = (filename: string) => {
       return 'text-red-600';
     case 'doc':
     case 'docx':
-      return 'text-blue-700';
+      return 'text-darkblue-700';
     case 'xls':
     case 'xlsx':
     case 'csv':
@@ -557,7 +557,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
       case 'failed':
         return 'text-red-600';
       case 'processing':
-        return 'text-blue-600';
+        return 'text-darkblue-600';
       default:
         return 'text-yellow-600';
     }
@@ -595,9 +595,9 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
       onDrop={handleDrop}
     >
       {dragActive && (
-        <div className="fixed inset-0 bg-blue-500/20 backdrop-blur-sm z-50 flex items-center justify-center">
-          <div className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg border-2 border-dashed border-blue-500">
-            <Upload className="h-12 w-12 text-blue-500 mx-auto mb-4" />
+        <div className="fixed inset-0 bg-darkblue-500/20 backdrop-blur-sm z-50 flex items-center justify-center">
+          <div className="bg-white dark:bg-gray-900 rounded-lg p-8 shadow-lg border-2 border-dashed border-darkblue-500">
+            <Upload className="h-12 w-12 text-darkblue-500 mx-auto mb-4" />
             <p className="text-lg font-medium text-center">Drop files here to upload</p>
             <p className="text-sm text-muted-foreground text-center mt-2">
               Supports documents, images, code files, and ZIP archives
@@ -808,7 +808,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
           <DialogHeader className="flex-shrink-0">
             <DialogTitle className="flex items-center gap-2">
-              <BookOpen className="h-5 w-5 text-blue-600" />
+              <BookOpen className="h-5 w-5 text-darkblue-600" />
               Add Knowledge to {agentName}
             </DialogTitle>
           </DialogHeader>
@@ -965,7 +965,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                                           </div>
                                           <div className="absolute top-1 right-1">
                                             {extractedFile.status === 'uploading' && (
-                                              <Loader2 className="h-3 w-3 animate-spin text-blue-600" />
+                                              <Loader2 className="h-3 w-3 animate-spin text-darkblue-600" />
                                             )}
                                             {extractedFile.status === 'success' && (
                                               <CheckCircle className="h-3 w-3 text-green-600" />
@@ -1017,7 +1017,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
                                     </div>
                                     <div className="absolute top-1 right-1">
                                       {uploadedFile.status === 'uploading' && (
-                                        <Loader2 className="h-3 w-3 animate-spin text-blue-600" />
+                                        <Loader2 className="h-3 w-3 animate-spin text-darkblue-600" />
                                       )}
                                       {uploadedFile.status === 'success' && (
                                         <CheckCircle className="h-3 w-3 text-green-600" />
@@ -1081,7 +1081,7 @@ export const AgentKnowledgeBaseManager = ({ agentId, agentName }: AgentKnowledge
         <DialogContent className="max-w-2xl max-h-[85vh] overflow-hidden flex flex-col">
           <DialogHeader className="flex-shrink-0">
             <DialogTitle className="flex items-center gap-2">
-              <Edit2 className="h-5 w-5 text-blue-600" />
+              <Edit2 className="h-5 w-5 text-darkblue-600" />
               Edit Knowledge Entry
             </DialogTitle>
           </DialogHeader>

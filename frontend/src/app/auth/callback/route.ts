@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
-import { checkAndInstallSunaAgent } from '@/lib/utils/install-suna-agent';
+import { checkAndInstallSuniAgent } from '@/lib/utils/install-suni-agent';
 
 export async function GET(request: Request) {
   // The `/auth/callback` route is required for the server-side auth flow implemented
@@ -14,7 +14,7 @@ export async function GET(request: Request) {
   if (code) {
     const supabase = await createClient();
     const { data, error } = await supabase.auth.exchangeCodeForSession(code);
-    await checkAndInstallSunaAgent(data.user.id, data.user.created_at);
+    await checkAndInstallSuniAgent(data.user.id, data.user.created_at);
   }
 
   // URL to redirect to after sign up process completes

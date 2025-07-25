@@ -44,7 +44,7 @@ interface AgentData extends BaseAgentData {
     version_number: number;
   };
   metadata?: {
-    is_suna_default?: boolean;
+    is_suni_default?: boolean;
     centrally_managed?: boolean;
     restrictions?: {
       system_prompt_editable?: boolean;
@@ -74,7 +74,7 @@ interface AgentCardProps {
 const MarketplaceBadge: React.FC<{ isKortixTeam?: boolean }> = ({ isKortixTeam }) => {
   if (isKortixTeam) {
     return (
-      <Badge variant="secondary" className="bg-blue-100 text-blue-700 border-0 dark:bg-blue-950 dark:text-blue-300">
+      <Badge variant="secondary" className="bg-darkblue-100 text-darkblue-700 border-0 dark:bg-darkblue-950 dark:text-darkblue-300">
         <CheckCircle className="h-3 w-3" />
         Kortix
       </Badge>
@@ -100,15 +100,15 @@ const TemplateBadge: React.FC<{ isPublic?: boolean }> = ({ isPublic }) => {
   );
 };
 
-const AgentBadges: React.FC<{ agent: AgentData, isSunaAgent: boolean }> = ({ agent, isSunaAgent }) => (
+const AgentBadges: React.FC<{ agent: AgentData, isSuniAgent: boolean }> = ({ agent, isSuniAgent }) => (
   <div className="flex gap-1">
-    {!isSunaAgent && agent.current_version && (
+    {!isSuniAgent && agent.current_version && (
       <Badge variant="outline" className="text-xs">
         <GitBranch className="h-3 w-3 mr-1" />
         {agent.current_version.version_name}
       </Badge>
     )}
-    {!isSunaAgent && agent.is_public && (
+    {!isSuniAgent && agent.is_public && (
       <Badge variant="default" className="bg-green-100 text-green-700 border-0 dark:bg-green-950 dark:text-green-300 text-xs">
         <Globe className="h-3 w-3 mr-1" />
         Published
@@ -226,8 +226,8 @@ const TemplateActions: React.FC<{
   </div>
 );
 
-const CardAvatar: React.FC<{ avatar: string; color: string; isSunaAgent?: boolean }> = ({ avatar, color, isSunaAgent = false }) => {
-  if (isSunaAgent) {
+const CardAvatar: React.FC<{ avatar: string; color: string; isSuniAgent?: boolean }> = ({ avatar, color, isSuniAgent = false }) => {
+  if (isSuniAgent) {
     return (
       <div className="h-14 w-14 bg-muted border flex items-center justify-center rounded-2xl">
         <KortixLogo size={28} />
@@ -240,7 +240,7 @@ const CardAvatar: React.FC<{ avatar: string; color: string; isSunaAgent?: boolea
       style={{ backgroundColor: color }}
     >
       <div className="text-2xl">{avatar}</div>
-      {isSunaAgent && (
+      {isSuniAgent && (
         <div className="absolute -top-1 -right-1 h-5 w-5 bg-background rounded-full border border-border flex items-center justify-center">
           <KortixLogo size={12} />
         </div>
@@ -287,7 +287,7 @@ export const AgentCard: React.FC<AgentCardProps> = ({
 }) => {
   const { avatar, color } = styling;
   
-  const isSunaAgent = mode === 'agent' && (data as AgentData).metadata?.is_suna_default === true;
+  const isSuniAgent = mode === 'agent' && (data as AgentData).metadata?.is_suni_default === true;
   
   const cardClassName = "group relative bg-card rounded-2xl overflow-hidden shadow-sm transition-all duration-300 border border-border/50 hover:border-primary/20 cursor-pointer flex flex-col min-h-[280px] max-h-[320px]";
   
@@ -298,7 +298,7 @@ export const AgentCard: React.FC<AgentCardProps> = ({
       case 'template':
         return <TemplateBadge isPublic={(data as TemplateData).is_public} />;
       case 'agent':
-        return <AgentBadges agent={data as AgentData} isSunaAgent={isSunaAgent} />;
+        return <AgentBadges agent={data as AgentData} isSuniAgent={isSuniAgent} />;
       default:
         return null;
     }
@@ -340,7 +340,7 @@ export const AgentCard: React.FC<AgentCardProps> = ({
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
       <div className="relative p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-4">
-          <CardAvatar avatar={avatar} color={color} isSunaAgent={isSunaAgent} />
+          <CardAvatar avatar={avatar} color={color} isSuniAgent={isSuniAgent} />
           <div className="flex items-center gap-2">
             {renderBadge()}
           </div>

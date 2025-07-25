@@ -18,5 +18,5 @@ class InvalidCredentialError(TemplateException):
     pass
 
 
-class SunaDefaultAgentTemplateError(TemplateException):
+class SuniDefaultAgentTemplateError(TemplateException):
     pass 

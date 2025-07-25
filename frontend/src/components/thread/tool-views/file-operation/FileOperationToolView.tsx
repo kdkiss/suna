@@ -364,7 +364,7 @@ export function FileOperationToolView({
               )}
               {isStreaming && fileContent && (
                 <div className="sticky bottom-4 right-4 float-right mr-4 mb-4">
-                  <Badge className="bg-blue-500/90 text-white border-none shadow-lg animate-pulse">
+                  <Badge className="bg-darkblue-500/90 text-white border-none shadow-lg animate-pulse">
                     <Loader2 className="h-3 w-3 animate-spin mr-1" />
                     Streaming...
                   </Badge>

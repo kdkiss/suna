@@ -41,7 +41,7 @@ const allPrompts: PromptExample[] = [
   {
     title: 'Recommendation engine',
     query: 'Develop a recommendation engine for personalized product suggestions. Include collaborative filtering, content-based filtering, and hybrid approaches with evaluation metrics.',
-    icon: <Bot className="text-blue-700 dark:text-blue-400" size={16} />,
+    icon: <Bot className="text-darkblue-700 dark:text-darkblue-400" size={16} />,
   },
   {
     title: 'Go-to-market strategy',
@@ -96,7 +96,7 @@ const allPrompts: PromptExample[] = [
   {
     title: 'Social media automation',
     query: 'Design a social media automation system including content scheduling, engagement tracking, hashtag optimization, and performance analytics across multiple platforms.',
-    icon: <Globe className="text-blue-600 dark:text-blue-300" size={16} />,
+    icon: <Globe className="text-darkblue-600 dark:text-darkblue-300" size={16} />,
   },
   {
     title: 'Health tracking dashboard',

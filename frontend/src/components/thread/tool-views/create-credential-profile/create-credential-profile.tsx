@@ -215,14 +215,14 @@ export function CreateCredentialProfileToolView({
                 </div>
 
                 {!profile.is_connected && (
-                  <div className="mt-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-3">
+                  <div className="mt-4 bg-darkblue-50 dark:bg-darkblue-900/20 border border-darkblue-200 dark:border-darkblue-800 rounded-xl p-3">
                     <div className="flex items-start gap-2">
-                      <Settings className="w-4 h-4 text-blue-600 dark:text-blue-400 mt-0.5" />
+                      <Settings className="w-4 h-4 text-darkblue-600 dark:text-darkblue-400 mt-0.5" />
                       <div>
-                        <p className="text-sm font-medium text-blue-900 dark:text-blue-100 mb-1">
+                        <p className="text-sm font-medium text-darkblue-900 dark:text-darkblue-100 mb-1">
                           Setup Required
                         </p>
-                        <p className="text-xs text-blue-700 dark:text-blue-300">
+                        <p className="text-xs text-darkblue-700 dark:text-darkblue-300">
                           This credential profile needs to be connected before it can be used. Follow the authentication flow to complete the setup.
                         </p>
                       </div>

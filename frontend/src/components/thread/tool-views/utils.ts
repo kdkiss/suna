@@ -1442,8 +1442,8 @@ export const getFileIconAndColor = (filename: string) => {
     case 'py':
       return { 
         icon: FileCode, 
-        color: 'text-blue-500 dark:text-blue-400', 
-        bgColor: 'bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20' 
+        color: 'text-darkblue-500 dark:text-darkblue-400', 
+        bgColor: 'bg-gradient-to-br from-darkblue-500/20 to-darkblue-600/10 border border-darkblue-500/20' 
       };
     case 'html':
     case 'css':
@@ -1544,8 +1544,8 @@ export const getFileIconAndColor = (filename: string) => {
       if (!ext || filename.includes('/')) {
         return { 
           icon: FolderOpen, 
-          color: 'text-blue-500 dark:text-blue-400', 
-          bgColor: 'bg-gradient-to-br from-blue-500/20 to-blue-600/10 border border-blue-500/20' 
+          color: 'text-darkblue-500 dark:text-darkblue-400', 
+          bgColor: 'bg-gradient-to-br from-darkblue-500/20 to-darkblue-600/10 border border-darkblue-500/20' 
         };
       }
       return { 

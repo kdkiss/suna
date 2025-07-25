@@ -6,7 +6,7 @@ def extract_agent_config(agent_data: Dict[str, Any], version_data: Optional[Dict
     agent_id = agent_data.get('agent_id', 'Unknown')
 
     metadata = agent_data.get('metadata', {})
-    is_suna_default = metadata.get('is_suna_default', False)
+    is_suni_default = metadata.get('is_suni_default', False)
     centrally_managed = metadata.get('centrally_managed', False)
     restrictions = metadata.get('restrictions', {})
     
@@ -26,10 +26,10 @@ def extract_agent_config(agent_data: Dict[str, Any], version_data: Optional[Dict
             custom_mcps = version_data.get('custom_mcps', [])
             agentpress_tools = version_data.get('agentpress_tools', {})
         
-        if is_suna_default:
-            from agent.suna.config import SunaConfig
-            system_prompt = SunaConfig.get_system_prompt()
-            agentpress_tools = SunaConfig.DEFAULT_TOOLS
+        if is_suni_default:
+            from agent.suni.config import SuniConfig
+            system_prompt = SuniConfig.get_system_prompt()
+            agentpress_tools = SuniConfig.DEFAULT_TOOLS
         
         config = {
             'agent_id': agent_data['agent_id'],
@@ -45,7 +45,7 @@ def extract_agent_config(agent_data: Dict[str, Any], version_data: Optional[Dict
             'agentpress_tools': _extract_agentpress_tools_for_run(agentpress_tools),
             'avatar': agent_data.get('avatar'),
             'avatar_color': agent_data.get('avatar_color'),
-            'is_suna_default': is_suna_default,
+            'is_suni_default': is_suni_default,
             'centrally_managed': centrally_managed,
             'restrictions': restrictions
         }
@@ -56,10 +56,10 @@ def extract_agent_config(agent_data: Dict[str, Any], version_data: Optional[Dict
         logger.info(f"Using agent config for agent {agent_id}")
         config = agent_data['config'].copy()
         
-        if is_suna_default:
-            from agent.suna.config import SunaConfig
-            config['system_prompt'] = SunaConfig.get_system_prompt()
-            config['tools']['agentpress'] = SunaConfig.DEFAULT_TOOLS
+        if is_suni_default:
+            from agent.suni.config import SuniConfig
+            config['system_prompt'] = SuniConfig.get_system_prompt()
+            config['tools']['agentpress'] = SuniConfig.DEFAULT_TOOLS
         
         config.update({
             'agent_id': agent_data['agent_id'],
@@ -68,7 +68,7 @@ def extract_agent_config(agent_data: Dict[str, Any], version_data: Optional[Dict
             'is_default': agent_data.get('is_default', False),
             'account_id': agent_data.get('account_id'),
             'current_version_id': agent_data.get('current_version_id'),
-            'is_suna_default': is_suna_default,
+            'is_suni_default': is_suni_default,
             'centrally_managed': centrally_managed,
             'restrictions': restrictions
         })
@@ -94,7 +94,7 @@ def build_unified_config(
     custom_mcps: Optional[List[Dict[str, Any]]] = None,
     avatar: Optional[str] = None,
     avatar_color: Optional[str] = None,
-    suna_metadata: Optional[Dict[str, Any]] = None
+    suni_metadata: Optional[Dict[str, Any]] = None
 ) -> Dict[str, Any]:
     simplified_tools = {}
     for tool_name, tool_config in agentpress_tools.items():
@@ -116,8 +116,8 @@ def build_unified_config(
         }
     }
     
-    if suna_metadata:
-        config['suna_metadata'] = suna_metadata
+    if suni_metadata:
+        config['suni_metadata'] = suni_metadata
     
     return config
 
@@ -179,8 +179,8 @@ def get_mcp_configs(config: Dict[str, Any]) -> List[Dict[str, Any]]:
     return all_mcps
 
 
-def is_suna_default_agent(config: Dict[str, Any]) -> bool:
-    return config.get('is_suna_default', False)
+def is_suni_default_agent(config: Dict[str, Any]) -> bool:
+    return config.get('is_suni_default', False)
 
 
 def get_agent_restrictions(config: Dict[str, Any]) -> Dict[str, bool]:
@@ -188,13 +188,13 @@ def get_agent_restrictions(config: Dict[str, Any]) -> Dict[str, bool]:
 
 
 def can_edit_field(config: Dict[str, Any], field_name: str) -> bool:
-    if not is_suna_default_agent(config):
+    if not is_suni_default_agent(config):
         return True
     
     restrictions = get_agent_restrictions(config)
     return restrictions.get(field_name, True)
 
 
-def get_default_system_prompt_for_suna_agent() -> str:
-    from agent.suna.config import SunaConfig
-    return SunaConfig.get_system_prompt()
+def get_default_system_prompt_for_suni_agent() -> str:
+    from agent.suni.config import SuniConfig
+    return SuniConfig.get_system_prompt()
