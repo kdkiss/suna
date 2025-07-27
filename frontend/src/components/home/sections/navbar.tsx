@@ -214,7 +214,7 @@ export function Navbar() {
                       priority
                     />
                     <span className="font-medium text-primary text-sm">
-                      / Suna
+                      / Suni
                     </span>
                   </Link>
                   <button

@@ -38,7 +38,7 @@ load_dotenv()
 def _get_suna_builder_enhancement():
     """
     Returns additional system prompt content for Suna when self-configuration is enabled.
-    This enhances Suna's default capabilities with agent builder functionality.
+    This enhances Suni's default capabilities with agent builder functionality.
     """
     return """
 # 🔧 SELF-CONFIGURATION CAPABILITIES
@@ -160,7 +160,7 @@ async def run_agent(
         from services.supabase import DBConnection
         db = DBConnection()
         
-        # Use Suna's own agent ID for self-configuration
+        # Use Suni's own agent ID for self-configuration
         suna_agent_id = agent_config['agent_id']
         
         thread_manager.add_tool(AgentConfigTool, thread_manager=thread_manager, db_connection=db, agent_id=suna_agent_id)

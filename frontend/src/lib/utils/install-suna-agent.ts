@@ -6,11 +6,11 @@ async function installSunaForNewUser(userId: string) {
     const adminApiKey = process.env.ADMIN_API_KEY;
     
     if (!adminApiKey) {
-      console.error('ADMIN_API_KEY not configured - cannot install Suna agent');
+      console.error('ADMIN_API_KEY not configured - cannot install Suni agent');
       return;
     }
     
-    console.log(`Installing Suna agent for user ${userId}`);
+    console.log(`Installing Suni agent for user ${userId}`);
     const response = await fetch(`${backendUrl}/admin/suna-agents/install-user/${userId}`, {
       method: 'POST',
       headers: {
@@ -25,11 +25,11 @@ async function installSunaForNewUser(userId: string) {
       return true;
     } else {
       const errorData = await response.json().catch(() => ({}));
-      console.error(`Failed to install Suna agent for user ${userId}:`, errorData);
+      console.error(`Failed to install Suni agent for user ${userId}:`, errorData);
       return false;
     }
   } catch (error) {
-    console.error('Error installing Suna agent for new user:', error);
+    console.error('Error installing Suni agent for new user:', error);
     return false;
   }
 }
@@ -45,7 +45,7 @@ export async function checkAndInstallSunaAgent(userId: string, userCreatedAt: st
       return;
     }
     
-    console.log(`Installing Suna agent for new user: ${userId}`);
+    console.log(`Installing Suni agent for new user: ${userId}`);
     const success = await installSunaForNewUser(userId);
     
     if (typeof window !== 'undefined') {

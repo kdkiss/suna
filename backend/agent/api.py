@@ -1744,7 +1744,7 @@ async def update_agent(
                 logger.error(f"User {user_id} attempted to modify restricted name of Suna agent {agent_id}")
                 raise HTTPException(
                     status_code=403, 
-                    detail="Suna's name cannot be modified. This restriction is managed centrally."
+                    detail="Suni's name cannot be modified. This restriction is managed centrally."
                 )
             
             if (agent_data.description is not None and
@@ -1753,7 +1753,7 @@ async def update_agent(
                 logger.error(f"User {user_id} attempted to modify restricted description of Suna agent {agent_id}")
                 raise HTTPException(
                     status_code=403, 
-                    detail="Suna's description cannot be modified."
+                    detail="Suni's description cannot be modified."
                 )
             
             if (agent_data.system_prompt is not None and 
@@ -1761,7 +1761,7 @@ async def update_agent(
                 logger.error(f"User {user_id} attempted to modify restricted system prompt of Suna agent {agent_id}")
                 raise HTTPException(
                     status_code=403, 
-                    detail="Suna's system prompt cannot be modified. This is managed centrally to ensure optimal performance."
+                    detail="Suni's system prompt cannot be modified. This is managed centrally to ensure optimal performance."
                 )
             
             if (agent_data.agentpress_tools is not None and 
@@ -1769,7 +1769,7 @@ async def update_agent(
                 logger.error(f"User {user_id} attempted to modify restricted tools of Suna agent {agent_id}")
                 raise HTTPException(
                     status_code=403, 
-                    detail="Suna's default tools cannot be modified. These tools are optimized for Suna's capabilities."
+                    detail="Suni's default tools cannot be modified. These tools are optimized for Suni's capabilities."
                 )
             
             if ((agent_data.configured_mcps is not None or agent_data.custom_mcps is not None) and 
@@ -1777,7 +1777,7 @@ async def update_agent(
                 logger.error(f"User {user_id} attempted to modify restricted MCPs of Suna agent {agent_id}")
                 raise HTTPException(
                     status_code=403, 
-                    detail="Suna's integrations cannot be modified."
+                    detail="Suni's integrations cannot be modified."
                 )
             
             logger.info(f"Suna agent update validation passed for agent {agent_id} by user {user_id}")

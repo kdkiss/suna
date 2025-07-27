@@ -109,19 +109,19 @@ export default function AgentConfigurationPage() {
     if (isSunaAgent) {
       if (restrictions.name_editable === false && formData.name !== originalData.name) {
         toast.error("Cannot save changes", {
-          description: "Suna's name cannot be modified.",
+          description: "Suni's name cannot be modified.",
         });
         return;
       }
       if (restrictions.system_prompt_editable === false && formData.system_prompt !== originalData.system_prompt) {
         toast.error("Cannot save changes", {
-          description: "Suna's system prompt cannot be modified.",
+          description: "Suni's system prompt cannot be modified.",
         });
         return;
       }
       if (restrictions.tools_editable === false && JSON.stringify(formData.agentpress_tools) !== JSON.stringify(originalData.agentpress_tools)) {
         toast.error("Cannot save changes", {
-          description: "Suna's default tools cannot be modified.",
+          description: "Suni's default tools cannot be modified.",
         });
         return;
       }

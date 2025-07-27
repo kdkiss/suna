@@ -116,10 +116,10 @@ export const AgentSelector: React.FC<AgentSelectorProps> = ({
     
     // If selectedAgentId is not undefined but no agent is found, log a warning
     if (selectedAgentId !== undefined) {
-      console.warn('Agent with ID', selectedAgentId, 'not found, falling back to Suna');
+      console.warn('Agent with ID', selectedAgentId, 'not found, falling back to Suni');
     }
     
-    // Default to Suna (the first agent which has id: undefined)
+    // Default to Suni (the first agent which has id: undefined)
     const defaultAgent = allAgents[0];
     const isDefaultAgentSuna = defaultAgent?.metadata?.is_suna_default || false;
     return {
